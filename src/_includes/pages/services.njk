@@ -3,9 +3,103 @@
 {% block body %}
     {% include "sections/landing.njk" %}
 
-    <!-- SERVICES -->
-    <section class="py-24 ~px-4/8">
-        <div class="container m-auto"></div>
+    <!-- PRODUKTY OVERVIEW -->
+    <section class="py-16 ~px-4/8">
+        <div class="container m-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Náš sortiment</h2>
+                <p class="text-lg text-gray-600 max-w-2xl m-auto">
+                    Nabízíme kompletní sortiment kvalitních produktů Hörmann a dalších renomovaných značek 
+                    pro vaši domácnost i firmu.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {% set navPages = collections.all | eleventyNavigation %}
+                {% for entry in navPages %}
+                    {% if entry.key == "Produkty" and entry.children %}
+                        {% for child in entry.children %}
+                        <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 hover:border-brand-orange group">
+                            <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-amber-400 rounded-lg flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m0 0h2M7 7h10M7 11h10M7 15h10"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-orange transition-colors duration-300">
+                                {{ child.key }}
+                            </h3>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                {% if child.key == "Garážová vrata" %}
+                                    Sekční a výklopná garážová vrata s vysokou bezpečností a energetickou úsporou.
+                                {% elif child.key == "Vjezdové brány" %}
+                                    Automatické posuvné a křídlové brány pro maximální bezpečnost a komfort.
+                                {% elif child.key == "Pergoly" %}
+                                    Bioklimatické pergoly a zastínění pro komfortní venkovní prostory.
+                                {% elif child.key == "Rolety" %}
+                                    Venkovní rolety a screenové systémy pro optimální zastínění oken.
+                                {% elif child.key == "Markýzy" %}
+                                    Elegantní markýzy pro terasy, balkony a obchodní prostory.
+                                {% elif child.key == "Žaluzie" %}
+                                    Kvalitní žaluzie pro dokonalou regulaci světla a soukromí.
+                                {% else %}
+                                    Kvalitní produkty pro vaše potřeby.
+                                {% endif %}
+                            </p>
+                            <a href="{{ child.url }}" class="inline-flex items-center text-brand-orange font-medium hover:text-brand-blue transition-colors duration-300 no-underline">
+                                Více informací
+                                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- VÝHODY -->
+    <section class="py-16 ~px-4/8 bg-gray-50">
+        <div class="container m-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Proč zvolit naše produkty</h2>
+                <p class="text-lg text-gray-600">Důvěřujeme pouze kvalitě a dlouhodobé spokojenosti</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center m-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Ověřená kvalita</h3>
+                    <p class="text-gray-600">Spolupracujeme pouze s renomovanými výrobci jako Hörmann s dlouholetou tradicí a zárukou kvality.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-blue rounded-full flex items-center justify-center m-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Odborná montáž</h3>
+                    <p class="text-gray-600">Naši certifikovaní technici zajistí profesionální montáž a seřízení všech produktů podle nejvyšších standardů.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center m-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Komplexní servis</h3>
+                    <p class="text-gray-600">Poskytujeme kompletní servis, údržbu a technickou podporu pro všechny naše produkty po celou dobu jejich životnosti.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     {% include "sections/cta.njk" %}

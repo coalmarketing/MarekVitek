@@ -1,66 +1,42 @@
-<header class="py-4 ~px-4/8 fixed flex w-full bg-black/50 z-50">
+<header class="py-4 ~px-4/8 bg-white border-b border-gray-200 sticky top-0 z-50">
   <div class="container m-auto flex justify-between items-center gap-8">
     <!-- LOGO -->
-    <a href="/">
-      <img
-        class="~h-5/6 w-auto"
-        src="/assets/svgs/senoweb-logo-white.svg"
-        alt="Senoweb logo"
-        width="170"
-        height="24"
-        loading="lazy"
-        decoding="async"
-        aria-hidden="true"
-        draggable="false">
+    <a href="/" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-brand-blue rounded-full flex items-center justify-center">
+        <span class="text-white font-bold text-sm">MV</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-bold text-gray-900 text-lg leading-tight">{{ client.name }}</span>
+        <span class="text-gray-600 text-xs leading-tight">{{ client.tagline }}</span>
+      </div>
     </a>
 
     <!-- NAVIGATION -->
-    <nav class="max-lg:hidden max-lg:group-[.mobile-menu]/body:block max-lg:absolute max-lg:top-[calc(100%+0.5rem)] max-lg:left-1/2 max-lg:-translate-x-1/2
-      max-lg:w-[calc(100vw-2rem)] max-lg:p-4 max-lg:bg-black max-lg:rounded-lg">
-      <ul class="flex max-lg:flex-col ~gap-2/8">
+    <nav class="hidden lg:block">
+      <ul class="flex items-center gap-6">
         {% set navPages = collections.all | eleventyNavigation %}
 
         {# Loop through all pages with a eleventyNavigation in the frontmatter #}
         {% for entry in navPages %}
-
-          {# Define a hasChild variable to make it easier to test what navigation items are have child dropdown pages #}
           {% set hasChild = entry.children.length %}
 
-          <li
-            class="group/li inline-flex {% if hasChild -%} dropdown {%- endif %}"
-            {%- if hasChild -%}tabindex="0"{%- endif -%}
-          >
-
-            {# If the page has child dropdown pages, render it as a <button> tag with the appropriate dropdown HTML #}
+          <li class="{% if hasChild %}relative group{% endif %}">
             {% if hasChild %}
-              {# Render the <button> with the active class, dropdown icon and child links #}
-              <button
-                class="dropdown-button"
-                aria-expanded="false"
-                aria-controls="dropdown-{{ entry.key | slug }}"
-                aria-label="dropdown-{{ entry.key | slug }}"
-                type="button"
-              >
-                <span>{{ entry.key }}</span>
-
-                <!-- ICON -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="mt-0.5" viewBox="0 0 16 16">
-                  <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              {# Dropdown menu #}
+              <button class="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-300 font-medium">
+                {{ entry.key }}
+                <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                 </svg>
               </button>
-
-              {# Dropdowns have another ul/li set up within the parent li, which gets rendered in the same way as a normal link #}
-              <div>
-                <ul id="dropdown-{{ entry.key | slug }}">
+              
+              {# Dropdown content #}
+              <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                <ul class="py-2">
                   {% for child in entry.children %}
-                    <li class="drop-li">
-                      <a
-                          href="{{ child.url }}"
-                          class="li-link inline-flex whitespace-nowrap ~p-1.5/4 ~text-sm/base
-                          {%- if child.url == page.url %} text-white
-                          {%- else %} text-gray-200 hover:text-white{% endif %}"
-                          {%- if child.url == page.url -%}aria-current="page"{%- endif -%}
-                        >
+                    <li>
+                      <a href="{{ child.url }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-brand-orange transition-colors duration-300
+                        {%- if child.url == page.url %} text-brand-orange font-semibold{% endif %}">
                         {{ child.key }}
                       </a>
                     </li>
@@ -68,124 +44,67 @@
                 </ul>
               </div>
             {% else %}
-              {# Normal pages are rendered as <a> tags, in the normal way you'd expect #}
-              <a
-                class="w-full ~p-1.5/4 whitespace-nowrap transition-colors duration-300 max-lg:pl-4 max-lg:border-l-4 max-lg:rounded-r-md
-                {%- if entry.url == page.url %} text-primary font-semibold max-lg:border-l-primary max-lg:bg-primary/10
-                {%- else %} text-gray-200 hover:text-white{% endif %}"
-                href="{{ entry.url }}"
-                {%- if entry.url == page.url -%}aria-current="page"{%- endif -%}>
-                {{ entry.key }}
-              </a>
+              {# Regular navigation link or special Kontakt button #}
+              {% if entry.key == "Kontakt" %}
+                <a href="{{ entry.url }}" class="inline-block px-4 py-2 bg-brand-blue text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-medium no-underline
+                  {%- if entry.url == page.url %} bg-opacity-80{% endif %}"
+                  {%- if entry.url == page.url -%}aria-current="page"{%- endif -%}>
+                  {{ entry.key }}
+                </a>
+              {% else %}
+                <a href="{{ entry.url }}" class="inline-block px-3 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-300 font-medium no-underline
+                  {%- if entry.url == page.url %} text-brand-orange font-semibold{% endif %}"
+                  {%- if entry.url == page.url -%}aria-current="page"{%- endif -%}>
+                  {{ entry.key }}
+                </a>
+              {% endif %}
             {% endif %}
           </li>
         {% endfor %}
       </ul>
     </nav>
 
-    <!-- DARKMODE + CTA -->
-    <div class="flex items-center gap-2 lg:gap-4">
-      <!-- DARKMODE BUTTON -->
-      <label for="dark-mode-toggle" class="darkmode-container">
-        <span class="sr-only">Přepínač tmavého režimu</span>
-        <input id="dark-mode-toggle" type="checkbox">
-        <span class="planet"></span>
-        <span class="elements">
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <polygon points="250,60 100,400 400,400"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <circle
-            cx="250"
-            cy="250"
-            r="200"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <circle
-            cx="250"
-            cy="250"
-            r="200"/>
-          </svg>
-          <svg
-            version="1.1"
-            viewBox="0 0 500 500"
-            xmlns="http://www.w3.org/2000/svg">
-            <circle
-            cx="250"
-            cy="250"
-            r="200"/>
-          </svg>
-        </span>
-      </label>
+    <!-- PHONE BUTTON -->
+    <div class="flex items-center gap-4">
+      <!-- Phone Button -->
+      <a href="tel:{{ client.phoneForTel }}" class="hidden md:flex items-center gap-2 px-4 py-2 bg-white border-2 border-gray-300 rounded-full text-gray-700 hover:border-brand-orange hover:text-brand-orange transition-all duration-300">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+        </svg>
+        <span class="font-medium">{{ client.phoneFormatted }}</span>
+      </a>
 
-      <!-- CTA -->
-      <a href="/kontakt" class="btn max-lg:hidden">Kontakt</a>
-
-      <!-- MOBILE MENU BUTTON -->
+      <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-toggle"
-        class="group lg:hidden flex justify-center items-center gap-1 h-11 w-11 bg-secondary rounded-xl transition-transform duration-300 [&.active]:rotate-90"
+        class="lg:hidden flex justify-center items-center w-10 h-10 bg-gray-100 rounded-lg transition-transform duration-300"
         type="button"
         aria-expanded="false"
       >
         <span class="sr-only">Otevřít navigaci</span>
-        <span class="relative block h-3.5 w-5">
-          <span class="absolute top-0 block h-0.5 w-full bg-white rounded-full transition-transform duration-300 group-[.active]:rotate-45 group-[.active]:top-1/2 group-[.active]:-translate-y-1/2 group-[.active]:left-1/2 group-[.active]:-translate-x-1/2"></span>
-          <span class="absolute top-1/2 -translate-y-1/2 block h-0.5 w-full bg-white rounded-full transition-[opacity] duration-300 group-[.active]:opacity-0"></span>
-          <span class="absolute bottom-0 block h-0.5 w-full bg-white rounded-full transition-transform duration-300 group-[.active]:rotate-[315deg] group-[.active]:top-1/2 group-[.active]:-translate-y-1/2 group-[.active]:left-1/2 group-[.active]:-translate-x-1/2"></span>
+        <span class="relative block h-4 w-4">
+          <span class="hamburger-line absolute top-0 block h-0.5 w-full bg-gray-600 rounded-full transition-all duration-300"></span>
+          <span class="hamburger-line absolute top-1/2 -translate-y-1/2 block h-0.5 w-full bg-gray-600 rounded-full transition-all duration-300"></span>
+          <span class="hamburger-line absolute bottom-0 block h-0.5 w-full bg-gray-600 rounded-full transition-all duration-300"></span>
         </span>
       </button>
     </div>
   </div>
+
+  <!-- Mobile Navigation Menu -->
+  <nav class="lg:hidden hidden" id="mobile-menu">
+    <div class="container m-auto pt-4 border-t border-gray-200">
+      <ul class="flex flex-col space-y-2">
+        {% set navPages = collections.all | eleventyNavigation %}
+        {% for entry in navPages %}
+          <li>
+            <a href="{{ entry.url }}" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-brand-orange transition-colors duration-300 rounded-lg
+              {%- if entry.url == page.url %} text-brand-orange font-semibold bg-orange-50{% endif %}">
+              {{ entry.key }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
 </header>

@@ -1,3 +1,116 @@
-<footer class="py-24 ~px-4/8">
-    <div class="container m-auto"></div>
+<footer class="py-16 ~px-4/8 bg-gray-50 border-t border-gray-200">
+    <div class="container m-auto">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
+            
+            <!-- Left Side - Company Info -->
+            <div class="lg:col-span-1">
+                <!-- Logo -->
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center mr-4">
+                        <span class="text-white font-bold text-lg">MV</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg">{{ client.name }}</h3>
+                        <p class="text-gray-600 text-sm">{{ client.tagline }}</p>
+                    </div>
+                </div>
+                
+                <!-- Description -->
+                <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                    {{ client.description }}
+                </p>
+                
+                <!-- Hörmann Partner Badge -->
+                <div class="inline-block">
+                    <div class="bg-white px-4 py-2 rounded-lg border border-gray-200">
+                        <p class="text-xs text-gray-500 mb-1">Exkluzivní partner</p>
+                        <p class="font-bold text-brand-orange text-lg">HÖRMANN</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Center - Contact Information -->
+            <div class="lg:col-span-1">
+                <h4 class="font-bold text-gray-900 text-lg mb-6">Kontaktní informace</h4>
+                
+                <div class="space-y-4">
+                    <!-- Phone -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-5 h-5 mt-0.5 flex-shrink-0">
+                            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                        </div>
+                        <a href="tel:{{ client.phoneForTel }}" class="text-gray-700 hover:text-brand-orange transition-colors">
+                            {{ client.phoneFormatted }}
+                        </a>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-5 h-5 mt-0.5 flex-shrink-0">
+                            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                        </div>
+                        <a href="mailto:{{ client.email }}" class="text-gray-700 hover:text-brand-orange transition-colors">
+                            {{ client.email }}
+                        </a>
+                    </div>
+                    
+                    <!-- Address -->
+                    <div class="flex items-start gap-3">
+                        <div class="w-5 h-5 mt-0.5 flex-shrink-0">
+                            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="text-gray-700">
+                            <p>{{ client.address.lineOne }}</p>
+                            <p>{{ client.address.lineTwo }}</p>
+                            <p>{{ client.address.city }}, {{ client.address.zip }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Map -->
+            <div class="lg:col-span-1">
+                <h4 class="font-bold text-gray-900 text-lg mb-6">Mapa</h4>
+                
+                <!-- Map Placeholder -->
+                <div class="bg-gray-200 rounded-lg h-48 flex items-center justify-center border border-gray-300">
+                    <div class="text-center">
+                        <svg class="w-12 h-12 text-gray-400 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        <p class="text-gray-500 text-sm">Mapa showroomu</p>
+                        <a href="{{ client.address.mapLink }}" target="_blank" class="text-brand-orange text-sm hover:underline">Zobrazit v mapách</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Footer -->
+        <div class="border-t border-gray-300 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Copyright -->
+                <p class="text-gray-600 text-sm">
+                    © 2025 {{ client.name }}. Všechna práva vyhrazena.
+                </p>
+                
+                <!-- Links -->
+                <div class="flex gap-6">
+                    <a href="/gdpr/" class="text-gray-600 text-sm hover:text-brand-orange transition-colors underline">
+                        Ochrana osobních údajů
+                    </a>
+                    <a href="/obchodni-podminky/" class="text-gray-600 text-sm hover:text-brand-orange transition-colors underline">
+                        Obchodní podmínky
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>

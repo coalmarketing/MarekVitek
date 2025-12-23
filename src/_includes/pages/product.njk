@@ -1,0 +1,99 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+    <!-- HERO SECTION -->
+    <section class="py-16 ~px-4/8 bg-gradient-to-br from-gray-50 to-white">
+        <div class="container m-auto">
+            <!-- Topper with gradient border -->
+            {% if hero.topper %}
+            <div class="text-center mb-6">
+                <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3">
+                    <span class="text-brand-blue font-semibold text-sm uppercase tracking-wider">{{ hero.topper }}</span>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Main content -->
+            <div class="text-center max-w-4xl m-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    {{ hero.heading | safe }}
+                </h1>
+                
+                {% if hero.paragraph1 %}
+                <p class="text-lg text-gray-600 mb-8 max-w-3xl m-auto">
+                    {{ hero.paragraph1 }}
+                </p>
+                {% endif %}
+
+                <!-- Features list -->
+                {% if hero.features %}
+                <div class="grid md:grid-cols-2 gap-4 max-w-2xl m-auto mb-8">
+                    {% for feature in hero.features %}
+                    <div class="flex items-center gap-3 text-left">
+                        <div class="w-5 h-5 bg-brand-orange rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-gray-700">{{ feature }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/kontakt/" class="inline-block px-8 py-4 bg-brand-orange text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold no-underline">
+                        Nezávazná konzultace
+                    </a>
+                    <a href="/produkty/" class="inline-block px-8 py-4 border-2 border-brand-blue text-brand-blue rounded-lg hover:bg-brand-blue hover:text-white transition-all duration-300 font-semibold no-underline">
+                        Všechny produkty
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="py-16 ~px-4/8">
+        <div class="container m-auto">
+            <div class="max-w-4xl m-auto prose prose-lg prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-600 prose-ul:text-gray-600 prose-strong:text-gray-900">
+                {{ content | safe }}
+            </div>
+        </div>
+    </section>
+
+    <!-- RELATED PRODUCTS -->
+    <section class="py-16 ~px-4/8 bg-gray-50">
+        <div class="container m-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Další produkty</h2>
+                <p class="text-lg text-gray-600">Prohlédněte si náš kompletní sortiment</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% set navPages = collections.all | eleventyNavigation %}
+                {% for entry in navPages %}
+                    {% if entry.key == "Produkty" and entry.children %}
+                        {% for child in entry.children %}
+                            {% if child.url != page.url %}
+                            <a href="{{ child.url }}" class="block p-6 bg-white rounded-xl hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-brand-orange no-underline group">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-brand-orange transition-colors duration-300">{{ child.key }}</h3>
+                                <p class="text-gray-600 text-sm">Zjistit více o {{ child.key | lower }}</p>
+                                <div class="mt-4 flex items-center text-brand-orange text-sm font-medium">
+                                    <span>Více informací</span>
+                                    <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </a>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% include "sections/cta.njk" %}
+{% endblock body %}
