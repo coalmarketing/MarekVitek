@@ -1,0 +1,563 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+    <!-- HERO SECTION - Dark with pergola background -->
+    <section class="relative py-20 ~px-4/8 bg-gray-900 overflow-hidden min-h-[600px] flex items-center">
+        <!-- Background Image Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent z-20"></div>
+        
+        <div class="container m-auto relative z-30">
+            <div class="max-w-2xl">
+                <!-- Topper with gradient border -->
+                {% if hero.topper %}
+                <div class="mb-6">
+                    <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3">
+                        <span class="text-white font-semibold text-sm uppercase tracking-wider">{{ hero.topper }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Main heading -->
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    {{ hero.heading }}
+                </h1>
+                
+                <!-- Description -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    {{ hero.paragraph }}
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="/kontakt/" class="inline-block px-8 py-4 bg-brand-orange text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold no-underline text-center">
+                        {{ hero.ctaPrimary }}
+                    </a>
+                    <a href="#produkty" class="inline-block px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold no-underline text-center">
+                        {{ hero.ctaSecondary }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERGOLA TYPES SECTION -->
+    <section class="py-16 ~px-4/8 bg-white">
+        <div class="container m-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3 mb-6">
+                    <span class="text-brand-blue font-semibold text-sm uppercase tracking-wider">{{ pergolaTypes.topper }}</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    {{ pergolaTypes.heading | safe }}
+                </h2>
+            </div>
+
+            <!-- Pergola types grid -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl m-auto">
+                {% for type in pergolaTypes.types %}
+                <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 hover:shadow-xl hover:border-brand-orange transition-all duration-300 group">
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-br from-brand-orange to-amber-400 rounded-full flex items-center justify-center m-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        {% if type.icon == "verdi" %}
+                            <!-- Bioclimatic Pergola Icon - adjustable slats -->
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        {% elif type.icon == "tira" %}
+                            <!-- Glass Roof Pergola Icon - window/glass panels -->
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        {% elif type.icon == "loira" %}
+                            <!-- Polycarbonate Roof Pergola Icon - transparent panels -->
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        {% endif %}
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2 uppercase tracking-wide">{{ type.name }}</h3>
+                    <p class="text-brand-orange font-semibold text-sm uppercase tracking-wider mb-4">{{ type.subtitle }}</p>
+                    <h4 class="text-lg font-bold text-gray-900 mb-4 uppercase">{{ type.title }}</h4>
+                    <p class="text-gray-600 leading-relaxed">{{ type.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION SECTION -->
+    <section class="py-16 ~px-4/8 bg-gray-50">
+        <div class="container m-auto">
+            <div class="max-w-4xl m-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    {{ introduction.heading }}
+                </h2>
+                <div class="text-lg text-gray-600 leading-relaxed space-y-4">
+                    <h3 class="text-xl font-semibold text-brand-orange mb-4">{{ introduction.subtitle }}</h3>
+                    <p>{{ introduction.description }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section class="py-12 md:py-16 lg:py-20 ~px-4/8 bg-gray-900 relative overflow-hidden">
+        <!-- Top Left Corner Border - Responsive -->
+        <div class="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-12 lg:left-12 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 pointer-events-none">
+            <svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="cornerGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F6D365;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FDA085;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,0 L100,0 L100,3 L3,3 L3,100 L0,100 Z" fill="url(#cornerGradient1)"/>
+            </svg>
+        </div>
+        
+        <!-- Bottom Right Corner Border - Responsive -->
+        <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 pointer-events-none">
+            <svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="cornerGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F6D365;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FDA085;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M100,100 L0,100 L0,97 L97,97 L97,0 L100,0 Z" fill="url(#cornerGradient2)"/>
+            </svg>
+        </div>
+        
+        <div class="container m-auto relative z-10">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-xs sm:text-sm font-bold text-brand-orange uppercase tracking-wider mb-6 md:mb-8">{{ statistics.topper }}</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 max-w-xs sm:max-w-md md:max-w-5xl lg:max-w-6xl m-auto">
+                {% for item in statistics.items %}
+                <div class="text-center border border-brand-orange rounded-lg p-6 sm:p-8 hover:bg-brand-orange hover:bg-opacity-10 transition-all duration-300">
+                    <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-orange mb-3 md:mb-4">{{ item.number }}</div>
+                    <div class="text-lg sm:text-xl font-bold text-white mb-1 md:mb-2">{{ item.label }}</div>
+                    <p class="text-gray-300 text-sm sm:text-base">{{ item.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="py-16 ~px-4/8 bg-white">
+        <div class="container m-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3 mb-6">
+                    <span class="text-brand-blue font-semibold text-sm uppercase tracking-wider">{{ benefits.topper }}</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    {{ benefits.heading | safe }}
+                </h2>
+                <p class="text-lg text-gray-600 mb-4">{{ benefits.subtitle }}</p>
+            </div>
+
+            <!-- Benefits grid -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl m-auto mb-12">
+                {% for item in benefits.items %}
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
+                    <!-- Icon -->
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-orange to-amber-400 rounded-full flex items-center justify-center m-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        {% if item.icon == "specialists" %}
+                            <!-- Specialists Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        {% elif item.icon == "variety" %}
+                            <!-- Variety Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                            </svg>
+                        {% elif item.icon == "protection" %}
+                            <!-- Smart Protection Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        {% elif item.icon == "elegance" %}
+                            <!-- Elegance Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                            </svg>
+                        {% elif item.icon == "customizable" %}
+                            <!-- Customizable Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"/>
+                            </svg>
+                        {% elif item.icon == "compatible" %}
+                            <!-- Compatible Shading Icon -->
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        {% endif %}
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">{{ item.title }}</h3>
+                    <p class="text-gray-600 leading-relaxed">{{ item.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Bottom description -->
+            <div class="max-w-4xl m-auto text-center">
+                <p class="text-lg text-gray-600 leading-relaxed">{{ benefits.description }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS GALLERY SECTION -->
+    <section id="produkty" class="py-16 ~px-4/8 bg-white">
+        <div class="container m-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{{ products.heading }}</h2>
+                <p class="text-lg text-gray-600 mb-4">{{ products.subtitle }}</p>
+                <p class="text-gray-500">{{ products.description }}</p>
+            </div>
+
+            <!-- Products grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                {% for item in products.gallery %}
+                <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 group cursor-pointer">
+                    <!-- Placeholder for product image -->
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 group-hover:from-gray-200 group-hover:to-gray-300 transition-all duration-300">
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center m-auto mb-3 opacity-60">
+                                {% if item.icon == "verdi" %}
+                                    <!-- Bioclimatic Pergola Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                                    </svg>
+                                {% elif item.icon == "tira" %}
+                                    <!-- Glass Pergola Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                    </svg>
+                                {% elif item.icon == "loira" %}
+                                    <!-- Polycarbonate Pergola Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                    </svg>
+                                {% elif item.icon == "accessories" %}
+                                    <!-- Accessories Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"/>
+                                    </svg>
+                                {% else %}
+                                    <!-- Default Pergola Icon -->
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                {% endif %}
+                            </div>
+                            <p class="text-sm font-medium text-gray-600">{{ item.title }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 STEPS SECTION -->
+    <section class="py-16 lg:py-20 ~px-4/8 bg-gray-50" data-motion-observe>
+        <div class="container m-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12 lg:mb-16">
+                <div class="inline-block border-gradient-custom-rounded bg-white px-8 py-4 mb-8">
+                    <span class="text-brand-blue font-bold text-lg uppercase tracking-wider">3 KROKY K NEZÁVISLÉ CENOVÉ NABÍDCE</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
+                    Jednoduše k vaší nové pergole
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-600 max-w-2xl m-auto">
+                    Jednoduchý proces od prvního kontaktu po kompletní instalaci vaší nové pergoly
+                </p>
+            </div>
+
+            <!-- Steps grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-7xl m-auto">
+                <!-- Step 1 - Contact -->
+                <div class="relative p-6 lg:p-8 bg-white rounded-2xl border-2 border-gray-300 hover:shadow-lg transition-all duration-300 group">
+                    <!-- Step number and icon -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center relative">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                            <!-- Step number -->
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center motion-step-1">
+                                <span class="text-white text-xs font-bold">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 text-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide">KONTAKTUJTE NÁS</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Zavolejte nám nebo vyplňte formulář. Odpovíme na všechny vaše dotazy a poradíme s výběrem.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 - Measurement -->
+                <div class="relative p-6 lg:p-8 bg-white rounded-2xl border-2 border-brand-orange hover:shadow-lg transition-all duration-300 group">
+                    <!-- Step number and icon -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center relative">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <!-- Step number -->
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center motion-step-2">
+                                <span class="text-white text-xs font-bold">2</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 text-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide">ZAMĚŘÍME ZDARMA</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Náš technik přijede na místo, provede přesné zaměření a poradí s technickým řešením.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 - Delivery & Installation -->
+                <div class="relative p-6 lg:p-8 bg-white rounded-2xl border-2 border-[#06D6A0] hover:shadow-lg transition-all duration-300 group">
+                    <!-- Step number and icon -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center relative">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h1.586a1 1 0 01.707.293l1.414 1.414a1 1 0 00.707.293H15a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+                            </svg>
+                            <!-- Step number -->
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-[#06D6A0] rounded-full flex items-center justify-center motion-step-3">
+                                <span class="text-white text-xs font-bold">3</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 text-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide">DODÁME A NAMONTUJEME</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Zajistíme dopravu, odbornou montáž a zaškolení. Vše s maximální péčí a čistotou.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="py-24 ~px-4/8 border-y ">
+        <div class="container m-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                
+                <!-- LEFT SIDE - HOW TO GET QUOTE -->
+                <div class="lg:col-span-1 space-y-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-8">{{ contact.leftSide.heading }}</h2>
+                    
+                    <!-- Steps -->
+                    <div class="space-y-6">
+                        {% for step in contact.leftSide.steps %}
+                        <div class="flex gap-4 border-l-2 border-gray-800 items-center ">
+                            <!-- Icon -->
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-200 ml-2">
+                                {% if step.icon == "search" %}
+                                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                    </svg>
+                                {% elif step.icon == "form" %}
+                                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                    </svg>
+                                {% elif step.icon == "email" %}
+                                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900 mb-2">{{ step.heading }}</h3>
+                                <p class="text-gray-600 text-sm">{{ step.text }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Quick Contact Box -->
+                    <div class="bg-white p-6 rounded-lg border-2 border-dashed border-gray-300 text-center">
+                        <div class="flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">{{ contact.leftSide.quickContact.heading }}</h4>
+                        <p class="text-gray-600 text-sm mb-4">{{ contact.leftSide.quickContact.text }}</p>
+                        <a href="tel:{{ contact.leftSide.quickContact.phone }}" class="inline-block bg-brand-orange border-2 border-brand-orange text-white px-6 py-2 rounded-lg font-semibold hover:bg-transparent hover:text-brand-orange transition-colors duration-300">
+                            {{ contact.leftSide.quickContact.phone }}
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- RIGHT SIDE - CONTACT FORM -->
+                <div class="lg:col-span-2 bg-brand-blue lg:rounded-3xl rounded-2xl lg:p-6 p-2">
+                    <div class="bg-brand-blue border-2 rounded-xl border-brand-orange lg:p-6 p-4">
+                        <h2 class="text-2xl font-bold text-white mb-2 text-center">{{ contact.rightSide.heading }}</h2>
+                        <p class="text-gray-300 text-sm mb-8 text-center">{{ contact.rightSide.subtitle }}</p>
+                        
+                        <form class="space-y-6" action="/kontakt/success/" method="POST" netlify>
+                            <input type="hidden" name="form-name" value="pergoly-contact">
+                            <input type="hidden" name="subject" value="Poptávka pergoly - {{ title }}">
+                            
+                            <!-- Personal Info Row -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                        </svg>
+                                        {{ contact.rightSide.form.nameLabel }}
+                                    </div>
+                                    <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                        </svg>
+                                        {{ contact.rightSide.form.phoneLabel }}
+                                    </div>
+                                    <input type="tel" name="phone" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                            </div>
+                            
+                            <!-- Email and Address Row -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                        </svg>
+                                        {{ contact.rightSide.form.emailLabel }}
+                                    </div>
+                                    <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        {{ contact.rightSide.form.addressLabel }}
+                                    </div>
+                                    <input type="text" name="address" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                            </div>
+                            
+                            <!-- Divider -->
+                            <hr class="border-slate-600">
+                            
+                            <!-- Parameters Section -->
+                            <div>
+                                <h3 class="text-white font-semibold mb-4">{{ contact.rightSide.form.parametersHeading }}</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-white text-sm mb-2">{{ contact.rightSide.form.pergolaTypeLabel }}</label>
+                                        <select name="pergola-type" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                            <option>{{ contact.rightSide.form.pergolaTypeDefault }}</option>
+                                            <option>Bioklimatická pergola VERDI</option>
+                                            <option>Pergola s prosklenou střechou TIRA</option>
+                                            <option>Pergola s polykarbonátovou střechou LOIRA</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-white text-sm mb-2">{{ contact.rightSide.form.dimensionsLabel }}</label>
+                                        <input type="text" name="dimensions" placeholder="{{ contact.rightSide.form.dimensionsPlaceholder }}" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Notes -->
+                            <div>
+                                <label class="block text-white text-sm mb-2">{{ contact.rightSide.form.notesLabel }}</label>
+                                <textarea name="notes" rows="4" placeholder="{{ contact.rightSide.form.notesPlaceholder }}" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange resize-none"></textarea>
+                            </div>
+                            
+                            <!-- GDPR Checkbox -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" id="gdpr" name="gdpr" required class="mt-1 w-4 h-4 text-brand-orange bg-slate-700 border-slate-600 rounded focus:ring-brand-orange focus:ring-2">
+                                    <label for="gdpr" class="text-white text-sm">{{ contact.rightSide.form.gdprText | safe }}</label>
+                                </div>
+                                <button type="submit" class="w-fit bg-white text-slate-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                                    {{ contact.rightSide.form.submitButton }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Intersection Observer Script for Motion Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create intersection observer for motion animations
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            // Trigger animation when section comes into view
+            const stepsSection = document.querySelector('[data-motion-observe]');
+            if (stepsSection) {
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // Get step numbers in correct order (1, 2, 3)
+                        const step1 = entry.target.querySelector('.motion-step-1');
+                        const step2 = entry.target.querySelector('.motion-step-2');
+                        const step3 = entry.target.querySelector('.motion-step-3');
+                        const stepNumbers = [step1, step2, step3].filter(el => el); // Remove null elements
+                        
+                        if (entry.isIntersecting) {
+                            // Animate when entering viewport
+                            stepNumbers.forEach((element, index) => {
+                                // Set initial state
+                                element.style.opacity = '0';
+                                element.style.transform = 'translateX(41%) translateY(-67%) rotate(9deg) scale(1)';
+                                element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                                
+                                // Animate with delay - step 1 first (300ms), step 2 second (600ms), step 3 last (900ms)
+                                setTimeout(() => {
+                                    element.style.opacity = '1';
+                                    element.style.transform = 'translateX(0) translateY(0) rotate(0deg) scale(1)';
+                                }, (index + 1) * 300);
+                            });
+                        } else {
+                            // Reset to initial state when leaving viewport
+                            stepNumbers.forEach((element) => {
+                                element.style.transition = 'none'; // Remove transition for instant reset
+                                element.style.opacity = '0';
+                                element.style.transform = 'translateX(41%) translateY(-67%) rotate(9deg) scale(1)';
+                            });
+                        }
+                    });
+                }, observerOptions);
+                
+                sectionObserver.observe(stepsSection);
+            }
+        });
+    </script>
+{% endblock body %}
