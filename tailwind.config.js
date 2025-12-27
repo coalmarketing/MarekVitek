@@ -45,6 +45,7 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("tailwind-scrollbar"),
+    require("tailwindcss-motion"),
     function ({ addUtilities, theme }) {
       const borderGradients = theme("borderImage");
       const utilities = {};

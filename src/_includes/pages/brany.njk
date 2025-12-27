@@ -1,7 +1,7 @@
 {% extends "layouts/base.njk" %}
 
 {% block body %}
-    <!-- HERO SECTION - Dark with garage door background -->
+    <!-- HERO SECTION - Dark with gate background -->
     <section class="relative py-20 ~px-4/8 bg-gray-900 overflow-hidden min-h-[600px] flex items-center">
         <!-- Background Image Overlay -->
         <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
@@ -62,17 +62,20 @@
                 <div class="text-center p-6 rounded-xl hover:shadow-lg transition-all duration-300 group">
                     <!-- Icon -->
                     <div class="w-16 h-16 bg-gradient-to-br from-brand-orange to-amber-400 rounded-full flex items-center justify-center m-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        {% if item.icon == "security" %}
+                        {% if item.icon == "posuvnebrany" %}
+                            <!-- Sliding Gate Icon - horizontal movement -->
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3M7 4v16"/>
                             </svg>
-                        {% elif item.icon == "energy" %}
+                        {% elif item.icon == "kridlovebrany" %}
+                            <!-- Swing Gate Icon - dual opening doors -->
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
                         {% elif item.icon == "design" %}
+                            <!-- Quality/Shield Icon for zinc guarantee -->
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                             </svg>
                         {% endif %}
                     </div>
@@ -118,7 +121,7 @@
                 <h2 class="text-xs sm:text-sm font-bold text-brand-orange uppercase tracking-wider mb-6 md:mb-8">{{ statistics.topper }}</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 max-w-xs sm:max-w-md md:max-w-5xl lg:max-w-6xl m-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 max-w-xs sm:max-w-md md:max-w-5xl lg:max-w-6xl m-auto">
                 {% for item in statistics.items %}
                 <div class="text-center border border-brand-orange rounded-lg p-6 sm:p-8 hover:bg-brand-orange hover:bg-opacity-10 transition-all duration-300">
                     <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-orange mb-3 md:mb-4">{{ item.number }}</div>
@@ -149,7 +152,7 @@
                         <div class="text-center">
                             <div class="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center m-auto mb-3 opacity-60">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m0 0h2M7 7h10M7 11h10M7 15h10"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
                                 </svg>
                             </div>
                             <p class="text-sm font-medium text-gray-600">{{ item.title }}</p>
@@ -162,18 +165,18 @@
     </section>
 
     <!-- 3 STEPS SECTION -->
-    <section class="py-24 lg:py-32 ~px-4/8 bg-gray-50" data-motion-observe>
+    <section class="py-16 lg:py-20 ~px-4/8 bg-gray-50" data-motion-observe>
         <div class="container m-auto">
             <!-- Section header -->
-            <div class="text-center mb-16 lg:mb-20">
+            <div class="text-center mb-12 lg:mb-16">
                 <div class="inline-block border-gradient-custom-rounded bg-white px-8 py-4 mb-8">
                     <span class="text-brand-blue font-bold text-lg uppercase tracking-wider">3 KROKY K NEZÁVISLÉ CENOVÉ NABÍDCE</span>
                 </div>
                 <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
-                    Jednoduše k vaší nové garážové bráně
+                    Jednoduše k vašim novým vjezdovým branám
                 </h2>
                 <p class="text-lg lg:text-xl text-gray-600 max-w-2xl m-auto">
-                    Jednoduchý proces od prvního kontaktu po kompletní instalaci vašich nových garážových vrat
+                    Jednoduchý proces od prvního kontaktu po kompletní instalaci vašich nových vjezdových bran
                 </p>
             </div>
 
@@ -210,7 +213,7 @@
                             </svg>
                             <!-- Step number -->
                             <div class="absolute -top-2 -right-2 w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center motion-step-2">
-                                <span class="text-white text-sm font-bold">2</span>
+                                <span class="text-white text-xs font-bold">2</span>
                             </div>
                         </div>
                     </div>
@@ -231,7 +234,7 @@
                             </svg>
                             <!-- Step number -->
                             <div class="absolute -top-2 -right-2 w-8 h-8 bg-[#06D6A0] rounded-full flex items-center justify-center motion-step-3">
-                                <span class="text-white text-sm font-bold">3</span>
+                                <span class="text-white text-xs font-bold">3</span>
                             </div>
                         </div>
                     </div>
@@ -306,8 +309,8 @@
                         <p class="text-gray-300 text-sm mb-8 text-center">{{ contact.rightSide.subtitle }}</p>
                         
                         <form class="space-y-6" action="/kontakt/success/" method="POST" netlify>
-                            <input type="hidden" name="form-name" value="garazova-vrata-contact">
-                            <input type="hidden" name="subject" value="Poptávka garážová vrata - {{ title }}">
+                            <input type="hidden" name="form-name" value="brany-contact">
+                            <input type="hidden" name="subject" value="Poptávka vjezdové brány - {{ title }}">
                             
                             <!-- Personal Info Row -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -366,10 +369,10 @@
                                         <label class="block text-white text-sm mb-2">{{ contact.rightSide.form.gateTypeLabel }}</label>
                                         <select name="gate-type" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
                                             <option>{{ contact.rightSide.form.gateTypeDefault }}</option>
-                                            <option>Výklopná vrata</option>
-                                            <option>Rolovací vrata</option>
-                                            <option>Průmyslová vrata</option>
-                                            <option>Designová vrata</option>
+                                            <option>Posuvné brány</option>
+                                            <option>Křídlové brány</option>
+                                            <option>Průmyslové brány</option>
+                                            <option>Bezpečnostní brány</option>
                                         </select>
                                     </div>
                                     <div>
@@ -429,13 +432,13 @@
                                 // Set initial state
                                 element.style.opacity = '0';
                                 element.style.transform = 'translateX(41%) translateY(-67%) rotate(9deg) scale(1)';
-                                element.style.transition = 'all 1.8s cubic-bezier(0.4, 0, 0.2, 1)';
-
-                                // Animate with delay - step 1 first (500ms), step 2 second (1000ms), step 3 last (1500ms)
+                                element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                                
+                                // Animate with delay - step 1 first (300ms), step 2 second (600ms), step 3 last (900ms)
                                 setTimeout(() => {
                                     element.style.opacity = '1';
                                     element.style.transform = 'translateX(0) translateY(0) rotate(0deg) scale(1)';
-                                }, (index + 1) * 500);
+                                }, (index + 1) * 300);
                             });
                         } else {
                             // Reset to initial state when leaving viewport
