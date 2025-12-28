@@ -7,9 +7,7 @@
             <div class="lg:col-span-1">
                 <!-- Logo -->
                 <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center mr-4">
-                        <span class="text-white font-bold text-lg">MV</span>
-                    </div>
+                    <img src="/assets/svgs/MarekVitek.svg" alt="{{ client.name }} logo" class="h-12 w-12 mr-4" decoding="async" loading="eager">
                     <div>
                         <h3 class="font-bold text-gray-900 text-lg">{{ client.name }}</h3>
                         <p class="text-gray-600 text-sm">{{ client.tagline }}</p>
@@ -80,15 +78,16 @@
             <div class="lg:col-span-1">
                 <h4 class="font-bold text-gray-900 text-lg mb-6">Mapa</h4>
                 
-                <!-- Map Placeholder -->
-                <div class="bg-gray-200 rounded-lg h-48 flex items-center justify-center border border-gray-300">
-                    <div class="text-center">
-                        <svg class="w-12 h-12 text-gray-400 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                        </svg>
-                        <p class="text-gray-500 text-sm">Mapa showroomu</p>
-                        <a href="{{ client.address.mapLink }}" target="_blank" class="text-brand-orange text-sm hover:underline">Zobrazit v mapách</a>
-                    </div>
+                <!-- Google Maps Embed -->
+                <div class="rounded-lg overflow-hidden border border-gray-300">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.3170647093757!2d16.45937447656135!3d50.08035031394272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470de4a3adfd4a27%3A0xb0a3f5e867069431!2zTsOhZHJhxb5uw60gODI0LCA1NjQgMDEgxb1hbWJlcms!5e0!3m2!1scs!2scz!4v1766955286602!5m2!1scs!2scz" 
+                           width="100%" 
+                           height="192" 
+                           style="border:0;" 
+                           allowfullscreen="" 
+                           loading="lazy" 
+                           referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>

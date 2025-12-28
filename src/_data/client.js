@@ -5,8 +5,8 @@ module.exports = {
     "Regionální exkluzivní dealer značky Hörmann pro Ústí nad Orlicí a okolí. Nabízíme kompletní sortiment garážových vrat, vjezdových bran, rolet a žaluzií.",
   email: "info@marekvitek.cz",
   ico: "19538685",
-  phoneForTel: "+420123456789",
-  phoneFormatted: "+420 123 456 789",
+  phoneForTel: "+420724311719",
+  phoneFormatted: "+420 724 311 719",
   address: {
     lineOne: "Showroom Marek Vítek",
     lineTwo: "Ulice 123",

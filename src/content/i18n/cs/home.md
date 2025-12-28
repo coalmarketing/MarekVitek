@@ -80,7 +80,7 @@ contact:
     quickContact:
       heading: Rychlý kontakt
       text: Nechcete čekat? Zavolejte nám přímo
-      phone: "+420 123 456 789"
+      phone: "+420 724 311 719"
   rightSide:
     heading: NEZÁVAZNÁ POPTÁVKA
     subtitle: Osobní údaje
@@ -89,9 +89,9 @@ contact:
       phoneLabel: Telefon
       emailLabel: E-mail
       addressLabel: Adresa realizace
-      parametersHeading: Parametry brány
-      gateTypeLabel: Typ brány
-      gateTypeDefault: Posuvná brána
+      parametersHeading: Parametry produktu
+      gateTypeLabel: Typ produktu
+      gateTypeDefault: Napište o co byste měl/a zájem
       dimensionsLabel: Rozměry (šířka x výška v cm)
       dimensionsPlaceholder: např. 350 x 160
       notesLabel: Poznámky a požadavky

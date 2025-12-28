@@ -118,7 +118,7 @@ contact:
     quickContact:
       heading: "Potřebujete rychlou odpověď?"
       text: "Zavolejte nám přímo a získejte okamžitou konzultaci"
-      phone: "+420 123 456 789"
+      phone: "+420 724 311 719"
   rightSide:
     heading: "Nezávazná poptávka pergoly"
     subtitle: "Vyplňte formulář a my vám připravíme cenovou nabídku na míru"
@@ -129,7 +129,7 @@ contact:
       addressLabel: "Adresa instalace"
       parametersHeading: "Parametry pergoly"
       pergolaTypeLabel: "Typ pergoly"
-      pergolaTypeDefault: "Vyberte typ pergoly"
+      pergolaTypeDefault: "Napište typ pergoly"
       dimensionsLabel: "Rozměry"
       dimensionsPlaceholder: "např. 4x3 m"
       notesLabel: "Poznámky a speciální požadavky"

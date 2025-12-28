@@ -439,7 +439,7 @@
                         <h2 class="text-2xl font-bold text-white mb-2 text-center">{{ contact.rightSide.heading }}</h2>
                         <p class="text-gray-300 text-sm mb-8 text-center">{{ contact.rightSide.subtitle }}</p>
                         
-                        <form class="space-y-6" action="/kontakt/success/" method="POST" netlify>
+                        <form class="space-y-6" action="/kontakt/success/" method="POST" data-netlify="true" netlify>
                             <input type="hidden" name="form-name" value="rolety-contact">
                             <input type="hidden" name="subject" value="Poptávka rolety - {{ title }}">
                             
@@ -498,12 +498,7 @@
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-white text-sm mb-2">{{ contact.rightSide.form.roletaTypeLabel }}</label>
-                                        <select name="roleta-type" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
-                                            <option>{{ contact.rightSide.form.roletaTypeDefault }}</option>
-                                            <option>Předokenní rolety</option>
-                                            <option>Zaomítací rolety</option>
-                                            <option>Nadokenní rolety</option>
-                                        </select>
+                                        <input type="text" name="roleta-type" placeholder="{{ contact.rightSide.form.roletaTypeDefault }}" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
                                     </div>
                                     <div>
                                         <label class="block text-white text-sm mb-2">{{ contact.rightSide.form.dimensionsLabel }}</label>

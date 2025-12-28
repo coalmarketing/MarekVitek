@@ -82,7 +82,7 @@ contact:
     quickContact:
       heading: "Rychlý kontakt"
       text: "Nechcete čekat? Zavolejte nám přímo"
-      phone: "+420 123 456 789"
+      phone: "+420 724 311 719"
   rightSide:
     heading: "NEZÁVAZNÁ POPTÁVKA"
     subtitle: "Osobní údaje"

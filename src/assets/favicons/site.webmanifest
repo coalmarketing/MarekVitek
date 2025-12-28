@@ -1,7 +1,13 @@
 {
-  "name": "Senoweb",
-  "short_name": "Senoweb",
+  "name": "MAREK VÍTEK",
+  "short_name": "MAREK VÍTEK",
   "icons": [
+    {
+      "src": "/assets/svgs/MarekVitek.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
     {
       "src": "/assets/favicons/web-app-manifest-192x192.png",
       "sizes": "192x192",

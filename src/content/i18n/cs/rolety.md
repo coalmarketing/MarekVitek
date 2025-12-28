@@ -122,7 +122,7 @@ contact:
     quickContact:
       heading: "Potřebujete rychlou odpověď?"
       text: "Zavolejte nám přímo a získejte okamžitou konzultaci"
-      phone: "+420 123 456 789"
+      phone: "+420 724 311 719"
   rightSide:
     heading: "Nezávazná poptávka rolet"
     subtitle: "Vyplňte formulář a my vám připravíme cenovou nabídku na míru"
@@ -133,7 +133,7 @@ contact:
       addressLabel: "Adresa instalace"
       parametersHeading: "Parametry rolet"
       roletaTypeLabel: "Typ rolet"
-      roletaTypeDefault: "Vyberte typ rolet"
+      roletaTypeDefault: "Napište typ rolet"
       dimensionsLabel: "Počet oken / rozměry"
       dimensionsPlaceholder: "např. 5 oken, 120x150 cm"
       notesLabel: "Poznámky a speciální požadavky"

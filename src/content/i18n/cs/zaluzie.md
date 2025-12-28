@@ -137,7 +137,7 @@ contact:
     quickContact:
       heading: "Potřebujete rychlou odpověď?"
       text: "Zavolejte nám přímo a získejte okamžitou konzultaci"
-      phone: "+420 123 456 789"
+      phone: "+420 724 311 719"
   rightSide:
     heading: "Nezávazná poptávka žaluzií"
     subtitle: "Vyplňte formulář a my vám připravíme cenovou nabídku na míru"
@@ -148,7 +148,7 @@ contact:
       addressLabel: "Adresa instalace"
       parametersHeading: "Parametry žaluzií"
       roletaTypeLabel: "Typ žaluzií"
-      roletaTypeDefault: "Vyberte typ žaluzií"
+      roletaTypeDefault: "Napište typ žaluzií"
       dimensionsLabel: "Počet oken / rozměry"
       dimensionsPlaceholder: "např. 3 okna, 150x120 cm"
       notesLabel: "Poznámky a speciální požadavky"
