@@ -1,8 +1,8 @@
 ---
-layout: "pages/product.njk"
+layout: "pages/markyzy.njk"
 
-title: "Markýzy a venkovní zastínění"
-description: "Elegantní markýzy pro terasy, balkony a obchodní prostory. Motorizované markýzy s ochranou proti větru a dešti."
+title: "Markýzy na míru - venkovní zastínění"
+description: "Kvalitní markýzy na míru pro terasy, balkony a obchodní prostory. Odolné látky s UV ochranou, motorizované ovládání a široká škála designových možností."
 permalink: "produkty/markyzy/"
 
 eleventyNavigation:
@@ -12,29 +12,6 @@ eleventyNavigation:
 
 hero:
   topper: Venkovní zastínění
-  heading: Markýzy a venkovní zastínění
-  paragraph1: Stylové markýzy pro zastínění teras, balkonů a obchodních prostor. Kvalitní látky odolné proti UV záření s možností motorového ovládání.
-  features:
-    - Odolné látky s UV ochranou
-    - Motorizované ovládání s čidly
-    - Široká škála barev a vzorů
-    - Ochrana proti větru a dešti
+  heading: "Markýzy na míru"
+  paragraph: "Realizujeme markýzy na míru pro elegantní a funkční zastínění vašich venkovních prostor"
 ---
-
-## Markýzy a venkovní zastínění
-
-Naše markýzy poskytují elegantní řešení pro zastínění venkovních prostor. Kvalitní materiály a promyšlený design zajistí dlouhodobou spokojenost.
-
-### Hlavní výhody
-
-- **Komfort**: Příjemné zastínění v horkých dnech
-- **Ochrana**: UV filtrace až 98%
-- **Automatizace**: Čidla větru, slunce a deště
-- **Estetika**: Široká škála designových možností
-
-### Typy markýz
-
-- Lokťové markýzy
-- Kasetnové markýzy
-- Pergolové markýzy
-- Vertikální markýzy

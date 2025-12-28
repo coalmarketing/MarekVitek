@@ -1,0 +1,686 @@
+{% extends "layouts/base.njk" %}
+
+{% block body %}
+    <!-- HERO SECTION - Dark with awnings background -->
+    <section class="relative py-20 ~px-4/8 bg-gray-900 overflow-hidden min-h-[600px] flex items-center">
+        <!-- Background Image Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent z-20"></div>
+        
+        <div class="container m-auto relative z-30">
+            <div class="max-w-2xl">
+                <!-- Topper with gradient border -->
+                {% if hero.topper %}
+                <div class="mb-6">
+                    <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3">
+                        <span class="text-white font-semibold text-sm uppercase tracking-wider">{{ hero.topper }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Main heading -->
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    MARKÝZY
+                </h1>
+                
+                <!-- Description -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    Realizujeme markýzy na míru
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="/kontakt/" class="inline-block px-8 py-4 bg-brand-orange text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold no-underline text-center">
+                        Nezávazná poptávka
+                    </a>
+                    <a href="#produkty" class="inline-block px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold no-underline text-center">
+                        Zobrazit produkty
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWNING BENEFITS SECTION -->
+    <section class="py-16 ~px-4/8 bg-white">
+        <div class="container m-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3 mb-6">
+                    <span class="text-brand-blue font-semibold text-sm uppercase tracking-wider">Proč zvolit naše markýzy</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Kvalita a elegance pro váš venkovní prostor
+                </h2>
+            </div>
+
+            <!-- Benefits grid -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl m-auto">
+                <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 hover:shadow-xl hover:border-brand-orange transition-all duration-300 group">
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-br from-brand-orange to-amber-400 rounded-full flex items-center justify-center m-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <!-- Strong Construction Icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 uppercase tracking-wide">KONSTRUKCE MARKÝZY</h3>
+                    <p class="text-gray-600 leading-relaxed">Pevná a stabilní konstrukce z kvalitních materiálů zajišťuje dlouhou životnost a spolehlivost i při každodenním používání.</p>
+                </div>
+
+                <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 hover:shadow-xl hover:border-brand-orange transition-all duration-300 group">
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-br from-brand-orange to-amber-400 rounded-full flex items-center justify-center m-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <!-- Color Stability Icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 uppercase tracking-wide">BAREVNÁ STÁLOST</h3>
+                    <p class="text-gray-600 leading-relaxed">Použité látky si zachovávají svůj vzhled i při dlouhodobém vystavení slunečnímu záření.</p>
+                </div>
+
+                <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 hover:shadow-xl hover:border-brand-orange transition-all duration-300 group">
+                    <!-- Icon -->
+                    <div class="w-20 h-20 bg-gradient-to-br from-brand-orange to-amber-400 rounded-full flex items-center justify-center m-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <!-- Quality Impregnation Icon -->
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 uppercase tracking-wide">KVALITNÍ IMPREGNACE</h3>
+                    <p class="text-gray-600 leading-relaxed">Speciální povrchová úprava chrání látku před vlhkostí, nečistotami a povětrnostními vlivy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS SECTION -->
+    <section class="py-12 md:py-16 lg:py-20 ~px-4/8 bg-gray-900 relative overflow-hidden">
+        <!-- Top Left Corner Border - Responsive -->
+        <div class="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-12 lg:left-12 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 pointer-events-none">
+            <svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="cornerGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F6D365;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FDA085;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,0 L100,0 L100,3 L3,3 L3,100 L0,100 Z" fill="url(#cornerGradient1)"/>
+            </svg>
+        </div>
+        
+        <!-- Bottom Right Corner Border - Responsive -->
+        <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 pointer-events-none">
+            <svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="cornerGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F6D365;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FDA085;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M100,100 L0,100 L0,97 L97,97 L97,0 L100,0 Z" fill="url(#cornerGradient2)"/>
+            </svg>
+        </div>
+        
+        <div class="container m-auto relative z-10">
+            <div class="text-center mb-8 md:mb-12">
+                <h2 class="text-xs sm:text-sm font-bold text-brand-orange uppercase tracking-wider mb-6 md:mb-8">Ověřené zkušenosti</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 max-w-xs sm:max-w-md md:max-w-5xl lg:max-w-6xl m-auto">
+                <div class="text-center border border-brand-orange rounded-lg p-6 sm:p-8 hover:bg-brand-orange hover:bg-opacity-10 transition-all duration-300">
+                    <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-orange mb-3 md:mb-4">15+</div>
+                    <div class="text-lg sm:text-xl font-bold text-white mb-1 md:mb-2">Let zkušeností</div>
+                    <p class="text-gray-300 text-sm sm:text-base">s realizací markýz</p>
+                </div>
+                <div class="text-center border border-brand-orange rounded-lg p-6 sm:p-8 hover:bg-brand-orange hover:bg-opacity-10 transition-all duration-300">
+                    <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-orange mb-3 md:mb-4">500+</div>
+                    <div class="text-lg sm:text-xl font-bold text-white mb-1 md:mb-2">Realizovaných projektů</div>
+                    <p class="text-gray-300 text-sm sm:text-base">spokojených zákazníků</p>
+                </div>
+                <div class="text-center border border-brand-orange rounded-lg p-6 sm:p-8 hover:bg-brand-orange hover:bg-opacity-10 transition-all duration-300">
+                    <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brand-orange mb-3 md:mb-4">4</div>
+                    <div class="text-lg sm:text-xl font-bold text-white mb-1 md:mb-2">Roky záruky</div>
+                    <p class="text-gray-300 text-sm sm:text-base">na všechny markýzy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWNING TYPES SECTION -->
+    <section id="produkty" class="py-16 ~px-4/8 bg-gray-50">
+        <div class="container m-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3 mb-6">
+                    <span class="text-brand-blue font-semibold text-sm uppercase tracking-wider">Typy markýz</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Široký výběr pro každé použití
+                </h2>
+            </div>
+
+            <!-- Awning types grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Markýza Brillante -->
+                <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="/assets/images/markyzy/brillante.jpg" 
+                            alt="Markýza Brillante - Výsuvná markýza pro terasy" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback placeholder when image is not available -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-brand-orange bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17a1 1 0 01-.293.707L12 19.414a1 1 0 01-1.414 0L8.293 17.707A1 1 0 018 17v-2.586a1 1 0 00-.293-.707L1.293 7.293A1 1 0 011 6.586V4z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">Brillante</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Markýza Brillante</h3>
+                        <p class="text-gray-600 leading-relaxed">Výsuvná markýza vhodná pro terasy a balkony. Nabízí stabilní konstrukci a elegantní design.</p>
+                    </div>
+                </div>
+
+                <!-- Markýza Aramis -->
+                <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="/assets/images/markyzy/aramis.jpg" 
+                            alt="Markýza Aramis - Moderní kazetová markýza" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback placeholder when image is not available -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-brand-orange bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">Aramis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Markýza Aramis</h3>
+                        <p class="text-gray-600 leading-relaxed">Moderní kazetová markýza s vysokou ochranou látky a konstrukce před povětrnostními vlivy.</p>
+                    </div>
+                </div>
+
+                <!-- Markýza Sircoma -->
+                <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="/assets/images/markyzy/sircoma.jpg" 
+                            alt="Markýza Sircoma - Klasická kloubová markýza" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback placeholder when image is not available -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-brand-orange bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">Sircoma</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Markýza Sircoma</h3>
+                        <p class="text-gray-600 leading-relaxed">Klasická kloubová markýza vhodná pro rodinné domy i komerční prostory.</p>
+                    </div>
+                </div>
+
+                <!-- Markýza Rumba -->
+                <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="/assets/images/markyzy/rumba.jpg" 
+                            alt="Markýza Rumba - Robustní konstrukce odolná větru" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback placeholder when image is not available -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-brand-orange bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">Rumba</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Markýza Rumba</h3>
+                        <p class="text-gray-600 leading-relaxed">Robustní konstrukce s vysokou odolností proti větru a mechanickému zatížení.</p>
+                    </div>
+                </div>
+
+                <!-- Markýza Veranda -->
+                <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="/assets/images/markyzy/veranda.jpg" 
+                            alt="Markýza Veranda - Řešení pro zimní zahrady" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback placeholder when image is not available -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-brand-orange bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7V5a2 2 0 012-2h14a2 2 0 012 2v2M3 7l9 6 9-6"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">Veranda</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Markýza Veranda</h3>
+                        <p class="text-gray-600 leading-relaxed">Ideální řešení pro zimní zahrady a prosklené střechy.</p>
+                    </div>
+                </div>
+
+                <!-- Markýza Markiza -->
+                <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden">
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="/assets/images/markyzy/markiza.jpg" 
+                            alt="Markýza Markiza - Elegantní pro menší terasy" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback placeholder when image is not available -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-brand-orange bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">Markiza</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Markýza Markiza</h3>
+                        <p class="text-gray-600 leading-relaxed">Elegantní markýza vhodná pro menší terasy a balkony.</p>
+                    </div>
+                </div>
+
+                <!-- Markýza Millennium -->
+                <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 group overflow-hidden md:col-start-2 lg:col-start-auto">
+                    <!-- Product Image -->
+                    <div class="aspect-[4/3] bg-gray-100 overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                            src="/assets/images/markyzy/millennium.jpg" 
+                            alt="Markýza Millennium - Designová s moderním vzhledem" 
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <!-- Fallback placeholder when image is not available -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center" style="display: none;">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-brand-orange bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <svg class="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs text-gray-500 font-medium">Millennium</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Markýza Millennium</h3>
+                        <p class="text-gray-600 leading-relaxed">Designová markýza s moderním vzhledem a kvalitním zpracováním.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 STEPS SECTION -->
+    <section class="py-16 lg:py-20 ~px-4/8 bg-white" data-motion-observe>
+        <div class="container m-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12 lg:mb-16">
+                <div class="inline-block border-gradient-custom-rounded bg-white px-8 py-4 mb-8">
+                    <span class="text-brand-blue font-bold text-lg uppercase tracking-wider">3 KROKY K NEZÁVISLÉ CENOVÉ NABÍDCE</span>
+                </div>
+                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
+                    Jednoduše k vaší nové markýze
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-600 max-w-2xl m-auto">
+                    Jednoduchý proces od prvního kontaktu po kompletní instalaci vaší nové markýzy
+                </p>
+            </div>
+
+            <!-- Steps grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-7xl m-auto">
+                <!-- Step 1 - Contact -->
+                <div class="relative p-6 lg:p-8 bg-white rounded-2xl border-2 border-gray-300 hover:shadow-lg transition-all duration-300 group">
+                    <!-- Step number and icon -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center relative">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <!-- Step number -->
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center motion-step-1">
+                                <span class="text-white text-xs font-bold">1</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 text-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide">KONTAKTUJTE NÁS</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Zavolejte nám nebo vyplňte formulář. Odpovíme na všechny vaše dotazy a poradíme s výběrem.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 - Measurement -->
+                <div class="relative p-6 lg:p-8 bg-white rounded-2xl border-2 border-brand-orange hover:shadow-lg transition-all duration-300 group">
+                    <!-- Step number and icon -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center relative">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <!-- Step number -->
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center motion-step-2">
+                                <span class="text-white text-xs font-bold">2</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 text-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide">ZAMĚŘÍME ZDARMA</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Náš technik přijede na místo, provede přesné zaměření a poradí s technickým řešením.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 - Delivery & Installation -->
+                <div class="relative p-6 lg:p-8 bg-white rounded-2xl border-2 border-[#06D6A0] hover:shadow-lg transition-all duration-300 group">
+                    <!-- Step number and icon -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                        <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center relative">
+                            <img src="/assets/svgs/van.svg" alt="Delivery van" class="w-8 h-8 object-contain">
+                            <!-- Step number -->
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-[#06D6A0] rounded-full flex items-center justify-center motion-step-3">
+                                <span class="text-white text-xs font-bold">3</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 text-center">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide">DODÁME A NAMONTUJEME</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Zajistíme dopravu, odbornou montáž a zaškolení. Vše s maximální péčí a čistotou.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="py-24 ~px-4/8 border-y">
+        <div class="container m-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                
+                <!-- LEFT SIDE - HOW TO GET QUOTE -->
+                <div class="lg:col-span-1 space-y-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-8">Jak získat cenovou nabídku</h2>
+                    
+                    <!-- Steps -->
+                    <div class="space-y-6">
+                        <div class="flex gap-4 border-l-2 border-gray-800 items-center">
+                            <!-- Icon -->
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-200 ml-2">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900 mb-2">Vyberte si markýzu</h3>
+                                <p class="text-gray-600 text-sm">Prohlédněte si naší nabídku a vyberte si typ markýzy, který nejlépe vyhovuje vašim potřebám.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 border-l-2 border-gray-800 items-center">
+                            <!-- Icon -->
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-200 ml-2">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900 mb-2">Vyplňte formulář</h3>
+                                <p class="text-gray-600 text-sm">Zadejte své kontaktní údaje a parametry markýzy. Čím více informací nám poskytnete, tím přesnější bude nabídka.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 border-l-2 border-gray-800 items-center">
+                            <!-- Icon -->
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center border border-gray-200 ml-2">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Content -->
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-gray-900 mb-2">Obdržíte nabídku</h3>
+                                <p class="text-gray-600 text-sm">Do 24 hodin vám pošleme nezávaznou cenovou nabídku na míru včetně doporučení a technických specifikací.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Contact Box -->
+                    <div class="bg-white p-6 rounded-lg border-2 border-dashed border-gray-300 text-center">
+                        <div class="flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Rychlý kontakt</h4>
+                        <p class="text-gray-600 text-sm mb-4">Máte dotazy? Zavolejte nám přímo!</p>
+                        <a href="tel:+420123456789" class="inline-block bg-brand-orange border-2 border-brand-orange text-white px-6 py-2 rounded-lg font-semibold hover:bg-transparent hover:text-brand-orange transition-colors duration-300">
+                            +420 123 456 789
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- RIGHT SIDE - CONTACT FORM -->
+                <div class="lg:col-span-2 bg-brand-blue lg:rounded-3xl rounded-2xl lg:p-6 p-2">
+                    <div class="bg-brand-blue border-2 rounded-xl border-brand-orange lg:p-6 p-4">
+                        <h2 class="text-2xl font-bold text-white mb-2 text-center">Nezávazná poptávka markýzy</h2>
+                        <p class="text-gray-300 text-sm mb-8 text-center">Vyplňte formulář a my vám připravíme cenovou nabídku na míru</p>
+                        
+                        <form class="space-y-6" action="/kontakt/success/" method="POST" netlify>
+                            <input type="hidden" name="form-name" value="markyzy-contact">
+                            <input type="hidden" name="subject" value="Poptávka markýzy">
+                            
+                            <!-- Personal Info Row -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                        </svg>
+                                        Jméno a příjmení *
+                                    </div>
+                                    <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                        </svg>
+                                        Telefon
+                                    </div>
+                                    <input type="tel" name="phone" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                            </div>
+                            
+                            <!-- Email and Address Row -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                        </svg>
+                                        E-mail *
+                                    </div>
+                                    <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                                <div>
+                                    <div class="flex items-center text-white text-sm mb-2">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        Adresa realizace
+                                    </div>
+                                    <input type="text" name="address" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                </div>
+                            </div>
+                            
+                            <!-- Divider -->
+                            <hr class="border-slate-600">
+                            
+                            <!-- Parameters Section -->
+                            <div>
+                                <h3 class="text-white font-semibold mb-4">Parametry markýzy</h3>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-white text-sm mb-2">Typ markýzy</label>
+                                        <select name="markyza-type" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                            <option>Vyberte typ markýzy</option>
+                                            <option>Markýza Brillante</option>
+                                            <option>Markýza Aramis</option>
+                                            <option>Markýza Sircoma</option>
+                                            <option>Markýza Rumba</option>
+                                            <option>Markýza Veranda</option>
+                                            <option>Markýza Markiza</option>
+                                            <option>Markýza Millennium</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-white text-sm mb-2">Přibližné rozměry</label>
+                                        <input type="text" name="dimensions" placeholder="např. šířka 4m x výsuv 3m" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Notes -->
+                            <div>
+                                <label class="block text-white text-sm mb-2">Poznámky a požadavky</label>
+                                <textarea name="notes" rows="4" placeholder="Upřesněte své požadavky, místo instalace, barvu látky apod." class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange resize-none"></textarea>
+                            </div>
+                            
+                            <!-- GDPR Checkbox -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" id="gdpr" name="gdpr" required class="mt-1 w-4 h-4 text-brand-orange bg-slate-700 border-slate-600 rounded focus:ring-brand-orange focus:ring-2">
+                                    <label for="gdpr" class="text-white text-sm">Souhlasím se <a href="/gdpr/" class="text-brand-orange hover:underline">zpracováním osobních údajů</a> *</label>
+                                </div>
+                                <button type="submit" class="w-fit bg-white text-slate-800 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                                    Odeslat poptávku
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intersection Observer Script for Motion Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create intersection observer for motion animations
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            // Trigger animation when section comes into view
+            const stepsSection = document.querySelector('[data-motion-observe]');
+            if (stepsSection) {
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // Get step numbers in correct order (1, 2, 3)
+                        const step1 = entry.target.querySelector('.motion-step-1');
+                        const step2 = entry.target.querySelector('.motion-step-2');
+                        const step3 = entry.target.querySelector('.motion-step-3');
+                        const stepNumbers = [step1, step2, step3].filter(el => el); // Remove null elements
+                        
+                        if (entry.isIntersecting) {
+                            // Animate when entering viewport
+                            stepNumbers.forEach((element, index) => {
+                                // Set initial state
+                                element.style.opacity = '0';
+                                element.style.transform = 'translateX(41%) translateY(-67%) rotate(9deg) scale(1)';
+                                element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                                
+                                // Animate with delay - step 1 first (300ms), step 2 second (600ms), step 3 last (900ms)
+                                setTimeout(() => {
+                                    element.style.opacity = '1';
+                                    element.style.transform = 'translateX(0) translateY(0) rotate(0deg) scale(1)';
+                                }, (index + 1) * 300);
+                            });
+                        } else {
+                            // Reset to initial state when leaving viewport
+                            stepNumbers.forEach((element) => {
+                                element.style.transition = 'none'; // Remove transition for instant reset
+                                element.style.opacity = '0';
+                                element.style.transform = 'translateX(41%) translateY(-67%) rotate(9deg) scale(1)';
+                            });
+                        }
+                    });
+                }, observerOptions);
+                
+                sectionObserver.observe(stepsSection);
+            }
+        });
+    </script>
+{% endblock %}
