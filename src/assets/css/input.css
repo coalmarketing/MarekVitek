@@ -271,3 +271,21 @@ html {
 nav a::before {
   display: none !important;
 }
+
+/* Custom slide-in animation for services */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  /* Animation will be controlled by JavaScript Intersection Observer */
+  opacity: 0;
+  transform: translateX(-50px);
+}

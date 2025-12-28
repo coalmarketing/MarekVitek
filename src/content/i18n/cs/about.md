@@ -1,11 +1,11 @@
 ---
 layout: "pages/about.njk"
 
-title: "O nás"
-description: "V Senoweb se specializujeme na tvorbu webových stránek na míru. Nepoužíváme koupené šablony, nástroje pro automatizované budování webů ani nástroje, které by váš web zahlcovali zbytečným kódem a tím vaší stránku zpomalovaly."
+title: "O nás - realizujeme na míru vrata, brány a stínicí techniku"
+description: "Více než 15 let zkušeností s dodávkou a montáží garážových vrat, bran, žaluzií a stínicí techniky. Jsme autorizovaným partnerem Hörmann s důrazem na kvalitu a spolehlivost."
 permalink: "o-nas/"
 
 eleventyNavigation:
-  key: Služby
-  order: 300
+  key: O nás
+  order: 200
 ---

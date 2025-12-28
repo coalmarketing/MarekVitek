@@ -7,5 +7,5 @@ permalink: "produkty/"
 
 eleventyNavigation:
   key: Produkty
-  order: 200
+  order: 300
 ---
