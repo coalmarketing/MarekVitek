@@ -11,7 +11,7 @@ eleventyNavigation:
 
 hero:
   topper: Exkluzivně pro Ústí nad Orlicí a okolí
-  heading: Kvalitní garážová vrata <br> a vjezdové brány Hörmann
+  heading: Kvalitní garážová vrata a vjezdové brány Hörmann
   paragraph1: Nabízíme kompletní sortiment prémiových produktů Hörmann včetně konzultace, odborné montáže a servisu. Dále dodáváme žaluzie, rolety a mnohem více pro domácnosti i firmy.
   btnCta1: Nezávazná konzultace
   btnCta2: Prohlédnout produkty
