@@ -1,9 +1,10 @@
 ---
 layout: "pages/zaluzie.njk"
 
-title: "Žaluzie - Vnitřní a venkovní žaluzie na míru"
-description: "Kvalitní žaluzie na míru pro dokonalou regulaci světla. Venkovní, vnitřní a dřevěné žaluzie s možností motorového ovládání."
+title: "Žaluzie - vnitřní a venkovní žaluzie na míru | Ústí nad Orlicí"
+description: "✓ Žaluzie na míru ✓ Vnitřní, venkovní a dřevěné žaluzie ✓ Motorové ovládání ✓ Regulace světla ✓ České výrobce Climax a Kasko ✓ Montáž zdarma"
 permalink: "produkty/zaluzie/"
+image: "/assets/images/zaluzie/vnitrni-venkovni-zaluzie.jpg"
 
 eleventyNavigation:
   key: Žaluzie

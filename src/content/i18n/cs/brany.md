@@ -1,9 +1,10 @@
 ---
 layout: "pages/brany.njk"
 
-title: "Vjezdové brány Hörmann"
-description: "Automatické vjezdové brány Hörmann pro maximální bezpečnost a komfort. Posuvné a křídlové brány s dálkovým ovládáním a moderním designem."
+title: "Vjezdové brány a pohony - automatické brány | Ústí nad Orlicí"
+description: "✓ Automatické vjezdové brány ✓ Posuvné a křídlové brány ✓ Pohony a ovládání ✓ Bezpečnostní prvky ✓ Montáž na klíč ✓ Servis a údržba ✓ Konzultace zdarma"
 permalink: "produkty/brany/"
+image: "/assets/images/brany/vjezdove-brany-automaticke.jpg"
 
 eleventyNavigation:
   key: Vjezdové brány

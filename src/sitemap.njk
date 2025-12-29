@@ -3,4 +3,21 @@ permalink: /sitemap.xml
 layout: null
 eleventyExcludeFromCollections: true
 ---
-{% sitemap collections.sitemap %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{%- for page in collections.sitemap %}
+  <url>
+    <loc>{{ client.domain }}{{ page.url }}</loc>
+    <lastmod>{{ page.date | isoDate }}</lastmod>
+    <changefreq>{% if page.url == '/' %}weekly{% elif page.url.includes('/produkty/') %}monthly{% else %}monthly{% endif %}</changefreq>
+    <priority>{% if page.url == '/' %}1.0{% elif page.url.includes('/produkty/') %}0.8{% elif page.url == '/o-nas/' or page.url == '/kontakt/' %}0.7{% else %}0.5{% endif %}</priority>
+    {%- if page.data.image %}
+    <image:image>
+      <image:loc>{{ client.domain }}{{ page.data.image }}</image:loc>
+      <image:title>{{ page.data.title }}</image:title>
+      <image:caption>{{ page.data.description }}</image:caption>
+    </image:image>
+    {%- endif %}
+  </url>
+{%- endfor %}
+</urlset>

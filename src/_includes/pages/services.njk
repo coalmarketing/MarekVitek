@@ -1,54 +1,180 @@
 {% extends "layouts/base.njk" %}
 
 {% block body %}
-    {% include "sections/landing.njk" %}
-
-    <!-- PRODUKTY OVERVIEW -->
-    <section class="py-16 ~px-4/8">
-        <div class="container m-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Náš sortiment</h2>
-                <p class="text-lg text-gray-600 max-w-2xl m-auto">
-                    Nabízíme kompletní sortiment kvalitních produktů Hörmann a dalších renomovaných značek 
-                    pro vaši domácnost i firmu.
+    <!-- MODERN PRODUCTS SECTION -->
+    <section class="relative py-24 ~px-4/8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden min-h-screen">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-16 left-16 w-2 h-2 bg-brand-orange rounded-full animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-1 h-1 bg-brand-blue rounded-full animate-ping"></div>
+            <div class="absolute bottom-32 left-1/4 w-3 h-3 bg-white rounded-full animate-bounce"></div>
+            <div class="absolute bottom-16 right-24 w-1 h-1 bg-brand-orange rounded-full animate-pulse"></div>
+            <div class="absolute top-1/2 right-1/3 w-2 h-2 bg-brand-blue rounded-full animate-ping"></div>
+        </div>
+        
+        <!-- Gradient Overlays -->
+        <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/90 to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-gray-900/40 z-10"></div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-orange/10 to-transparent rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-brand-blue/10 to-transparent rounded-full blur-3xl translate-y-32 -translate-x-32"></div>
+        
+        <div class="container m-auto relative z-30">
+            <!-- Enhanced Header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="mb-6 sm:mb-8">
+                    <div class="inline-flex items-center bg-gradient-to-r from-brand-orange/20 to-brand-blue/20 backdrop-blur-sm border border-white/20 px-4 py-2 sm:px-6 sm:py-3 rounded-xl">
+                        <div class="w-2 h-2 bg-brand-orange rounded-full animate-pulse mr-2 sm:mr-3"></div>
+                        <span class="text-white font-semibold text-xs sm:text-sm uppercase tracking-wider">Náš sortiment</span>
+                    </div>
+                </div>
+                
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+                    Naše produkty
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto px-4">
+                    Nabízíme kompletní sortiment kvalitních produktů Hörmann a dalších renomovaných značek pro vaši domácnost i firmu
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {% set navPages = collections.all | eleventyNavigation %}
-                {% for entry in navPages %}
-                    {% if entry.key == "Produkty" and entry.children %}
-                        {% for child in entry.children %}
-                        <div class="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 hover:border-brand-orange group">
-                            <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-amber-400 rounded-lg flex items-center justify-center mb-4">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m0 0h2M7 7h10M7 11h10M7 15h10"/>
-                                </svg>
+            <!-- Enhanced Products Layout -->
+            <div class="relative">
+                <!-- Enhanced Background Effects -->
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-orange/10 via-brand-blue/10 to-transparent rounded-3xl blur-3xl"></div>
+                <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-48 h-48 bg-gradient-to-l from-green-500/5 to-blue-500/5 rounded-full blur-2xl animate-pulse delay-1000"></div>
+                
+                <!-- Products Grid -->
+                <div class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
+                    {% set navPages = collections.all | eleventyNavigation %}
+                    {% set productColors = ["orange", "blue", "green", "purple", "indigo", "teal", "pink"] %}
+                    {% for entry in navPages %}
+                        {% if entry.key == "Produkty" and entry.children %}
+                            {% for child in entry.children %}
+                            {% set colorIndex = loop.index0 % productColors.length %}
+                            {% set productColor = productColors[colorIndex] %}
+                            <!-- Product Card {{ loop.index }} -->
+                            <div class="relative group">
+                                <a href="{{ child.url }}" class="block relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/15 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl {% if productColor == 'orange' %}hover:shadow-orange-500/25{% elif productColor == 'blue' %}hover:shadow-blue-500/25{% elif productColor == 'green' %}hover:shadow-green-500/25{% elif productColor == 'purple' %}hover:shadow-purple-500/25{% elif productColor == 'indigo' %}hover:shadow-indigo-500/25{% elif productColor == 'teal' %}hover:shadow-teal-500/25{% else %}hover:shadow-pink-500/25{% endif %} h-full min-h-[280px] sm:min-h-[320px]">
+                                    
+                                    <!-- Image Container -->
+                                    <div class="relative h-40 sm:h-48 md:h-32 lg:h-40 overflow-hidden">
+                                        <!-- Placeholder gradient background -->
+                                        <div class="absolute inset-0 bg-gradient-to-br {% if productColor == 'orange' %}from-brand-orange/20 to-orange-600/30{% elif productColor == 'blue' %}from-brand-blue/20 to-blue-600/30{% elif productColor == 'green' %}from-green-500/20 to-green-600/30{% elif productColor == 'purple' %}from-purple-500/20 to-purple-600/30{% elif productColor == 'indigo' %}from-indigo-500/20 to-indigo-600/30{% elif productColor == 'teal' %}from-teal-500/20 to-teal-600/30{% else %}from-pink-500/20 to-pink-600/30{% endif %}"></div>
+                                        
+                                        <!-- Image overlay for better text readability -->
+                                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-gray-900/10"></div>
+                                        
+                                        <!-- Product icon/illustration -->
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div class="w-12 h-12 sm:w-16 sm:h-16 {% if productColor == 'orange' %}bg-brand-orange{% elif productColor == 'blue' %}bg-brand-blue{% elif productColor == 'green' %}bg-green-500{% elif productColor == 'purple' %}bg-purple-500{% elif productColor == 'indigo' %}bg-indigo-500{% elif productColor == 'teal' %}bg-teal-500{% else %}bg-pink-500{% endif %} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                                {% if child.key == "Garážová vrata" %}
+                                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                                    </svg>
+                                                {% elif child.key == "Vjezdové brány" %}
+                                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0v4M5 11h14l-.5 7A2 2 0 0116.5 20h-9A2 2 0 015.5 18L5 11z"/>
+                                                    </svg>
+                                                {% elif child.key == "Žaluzie" %}
+                                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                                                    </svg>
+                                                {% elif child.key == "Rolety" %}
+                                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                                    </svg>
+                                                {% elif child.key == "Markýzy" %}
+                                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                                    </svg>
+                                                {% elif child.key == "Pergoly" %}
+                                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21l4-4m0 0V3m0 14l4 4m-8-6h16"/>
+                                                    </svg>
+                                                {% else %}
+                                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                                    </svg>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Hover arrow -->
+                                        <div class="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:transform group-hover:scale-110">
+                                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Content -->
+                                    <div class="p-4 sm:p-5 flex flex-col justify-between flex-1 relative z-10 bg-gradient-to-t from-gray-900/70 via-gray-900/30 to-transparent backdrop-blur-sm">
+                                        <div>
+                                            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 drop-shadow-2xl group-hover:{% if productColor == 'orange' %}text-brand-orange{% elif productColor == 'blue' %}text-brand-blue{% elif productColor == 'green' %}text-green-400{% elif productColor == 'purple' %}text-purple-400{% elif productColor == 'indigo' %}text-indigo-400{% elif productColor == 'teal' %}text-teal-400{% else %}text-pink-400{% endif %} transition-colors duration-300 leading-tight" style="text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.8);">
+                                                {{ child.key }}
+                                            </h3>
+                                            <p class="text-gray-100 text-sm leading-relaxed mb-3 opacity-95" style="text-shadow: 0 1px 8px rgba(0,0,0,0.8);">
+                                                {% if child.key == "Garážová vrata" %}
+                                                    Sekční a výklopná garážová vrata s vysokou bezpečností a energetickou úsporou
+                                                {% elif child.key == "Vjezdové brány" %}
+                                                    Automatické posuvné a křídlové brány pro maximální bezpečnost a komfort
+                                                {% elif child.key == "Pergoly" %}
+                                                    Bioklimatické pergoly a zastínění pro komfortní venkovní prostory
+                                                {% elif child.key == "Rolety" %}
+                                                    Venkovní rolety a screenové systémy pro optimální zastínění oken
+                                                {% elif child.key == "Markýzy" %}
+                                                    Elegantní markýzy pro terasy, balkony a obchodní prostory
+                                                {% elif child.key == "Žaluzie" %}
+                                                    Kvalitní žaluzie pro dokonalou regulaci světla a soukromí
+                                                {% elif child.key == "Sítě proti hmyzu" %}
+                                                    Kvalitní ochrana proti hmyzu do oken a dveří
+                                                {% else %}
+                                                    Kvalitní produkty pro vaše potřeby
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                        
+                                        <!-- CTA -->
+                                        <div class="flex items-center text-white/80 text-sm font-medium group-hover:text-white transition-colors duration-300 mt-auto">
+                                            <span>Zobrazit produkt</span>
+                                            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Card glow on hover -->
+                                    <div class="absolute inset-0 bg-gradient-to-br {% if productColor == 'orange' %}from-brand-orange/10{% elif productColor == 'blue' %}from-brand-blue/10{% elif productColor == 'green' %}from-green-500/10{% elif productColor == 'purple' %}from-purple-500/10{% elif productColor == 'indigo' %}from-indigo-500/10{% elif productColor == 'teal' %}from-teal-500/10{% else %}from-pink-500/10{% endif %} to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                </a>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-brand-orange transition-colors duration-300">
-                                {{ child.key }}
-                            </h3>
-                            <p class="text-gray-600 mb-4 text-sm">
-                                {% if child.key == "Garážová vrata" %}
-                                    Sekční a výklopná garážová vrata s vysokou bezpečností a energetickou úsporou.
-                                {% elif child.key == "Vjezdové brány" %}
-                                    Automatické posuvné a křídlové brány pro maximální bezpečnost a komfort.
-                                {% elif child.key == "Pergoly" %}
-                                    Bioklimatické pergoly a zastínění pro komfortní venkovní prostory.
-                                {% elif child.key == "Rolety" %}
-                                    Venkovní rolety a screenové systémy pro optimální zastínění oken.
-                                {% elif child.key == "Markýzy" %}
-                                    Elegantní markýzy pro terasy, balkony a obchodní prostory.
-                                {% elif child.key == "Žaluzie" %}
-                                    Kvalitní žaluzie pro dokonalou regulaci světla a soukromí.
-                                {% else %}
-                                    Kvalitní produkty pro vaše potřeby.
-                                {% endif %}
-                            </p>
-                            <a href="{{ child.url }}" class="inline-flex items-center text-brand-orange font-medium hover:text-brand-blue transition-colors duration-300 no-underline">
-                                Více informací
-                                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                
+                <!-- Bottom CTA -->
+                <div class="text-center mt-12 sm:mt-16">
+                    <div class="inline-flex flex-col sm:flex-row gap-4">
+                        <a href="/kontakt/" class="group inline-flex items-center justify-center bg-gradient-to-r from-brand-orange to-orange-400 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 transform hover:-translate-y-1">
+                            <span>Nezávazná konzultace</span>
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                        <a href="/" class="group inline-flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all duration-300">
+                            <span>Zpět na domů</span>
+                            <svg class="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m0 0h3m0 0h3a1 1 0 001-1V10M9 21h6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
                                 </svg>
                             </a>
                         </div>

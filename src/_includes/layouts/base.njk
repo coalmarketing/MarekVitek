@@ -9,17 +9,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="garážová vrata, vjezdové brány, rolety, žaluzie, markýzy, Hörmann, Ústí nad Orlicí, Žamberk, Letohrad, stínicí technika, montáž, servis, {{ title }}">
+    <meta name="author" content="{{ client.name }}">
+    <meta name="robots" content="index, follow">
     <meta name="generator" content="{{ eleventy.generator }}">
     <link rel="canonical" href="{{ client.domain }}{{ page.url }}">
+    
+    <!-- Geo location for local business -->
+    <meta name="geo.region" content="CZ-531">
+    <meta name="geo.placename" content="Žamberk, Ústí nad Orlicí">
+    <meta name="geo.position" content="50.08035;16.45937">
+    <meta name="ICBM" content="50.08035, 16.45937">
 
-    <!-- Social Media Display -->
-    <meta property="og:title" content="{{ title }}"/>
+    <!-- Social Media Display (Open Graph) -->
+    <meta property="og:title" content="{{ title }} | {{ client.name }}"/>
     <meta property="og:description" content="{{ description }}"/>
-    <meta property="og:type" content="website"/>
+    <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}"/>
     <meta property="og:url" content="{{ client.domain }}{{ page.url }}"/>
-    <meta property="og:image" content="{{ image or "/assets/images/og-logo.png" }}"/>
-    <meta property="og:image:secure_url" content="{{ image or "/assets/images/og-logo.png" }}"/>
-    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:image" content="{{ client.domain }}{{ image or "/assets/images/og-logo.png" }}"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="{{ title }} - {{ client.name }}"/>
+    <meta property="og:site_name" content="{{ client.name }}"/>
+    <meta property="og:locale" content="cs_CZ"/>
+    <meta property="business:contact_data:street_address" content="{{ client.address.lineTwo }}"/>
+    <meta property="business:contact_data:locality" content="{{ client.address.city }}"/>
+    <meta property="business:contact_data:postal_code" content="{{ client.address.zip }}"/>
+    <meta property="business:contact_data:country_name" content="Czech Republic"/>
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="{{ title }} | {{ client.name }}"/>
+    <meta name="twitter:description" content="{{ description }}"/>
+    <meta name="twitter:image" content="{{ client.domain }}{{ image or "/assets/images/og-logo.png" }}"/>
+    
+    <!-- Language alternatives -->
+    <link rel="alternate" hreflang="cs" href="{{ client.domain }}{{ page.url }}"/>
+    <link rel="alternate" hreflang="x-default" href="{{ client.domain }}{{ page.url }}"/>
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96"/>

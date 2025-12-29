@@ -1,9 +1,10 @@
 ---
 layout: "pages/rolety.njk"
 
-title: "Rolety - Okenní rolety na míru"
-description: "Kvalitní okenní rolety na míru. Předokenní, zaomítací a nadokenní rolety s možností elektrického ovládání. Ochrana před sluncem a hlukem."
+title: "Rolety - okenní a venkovní rolety na míru | Ústí nad Orlicí"
+description: "✓ Okenní rolety na míru ✓ Předokenní, zaomítací a nadokenní ✓ Elektrické ovládání ✓ Ochrana před sluncem ✓ Tepelná izolace ✓ Montáž na klíč"
 permalink: "produkty/rolety/"
+image: "/assets/images/rolety/okennni-rolety-na-miru.jpg"
 
 eleventyNavigation:
   key: Rolety

@@ -1,5 +1,5 @@
 ---
-layout: "pages/services.njk"
+layout: "pages/product.njk"
 
 title: "Produkty"
 description: "Kompletní sortiment garážových vrat, vjezdových bran, pergol, rolet, markýz a žaluzií pro domácnosti i firmy."

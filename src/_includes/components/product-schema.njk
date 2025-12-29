@@ -1,0 +1,89 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["Product", "Service"],
+        "@id": "{{ client.domain }}{{ page.url }}#product",
+        "name": "{{ title }}",
+        "description": "{{ description }}",
+        "url": "{{ client.domain }}{{ page.url }}",
+        {% if image %}"image": "{{ client.domain }}{{ image }}",{% endif %}
+        "provider": {
+            "@type": "LocalBusiness",
+            "@id": "{{ client.domain }}/#organization",
+            "name": "{{ client.name }}",
+            "url": "{{ client.domain }}",
+            "telephone": "{{ client.phoneFormatted }}",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "{{ client.address.lineTwo }}",
+                "addressLocality": "{{ client.address.city }}",
+                "postalCode": "{{ client.address.zip }}",
+                "addressCountry": "CZ"
+            }
+        },
+        "manufacturer": {
+            "@type": "Organization",
+            "name": "Hörmann",
+            "url": "https://www.hormann.cz"
+        },
+        "brand": {
+            "@type": "Brand",
+            "name": "Hörmann"
+        },
+        "category": "{{ title | replace('Hörmann', '') | replace('  ', ' ') | trim }}",
+        "serviceType": "{{ title }}",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "50.08035",
+                "longitude": "16.45937"
+            },
+            "geoRadius": "50000"
+        },
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "CZK",
+            "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "CZK",
+                "price": "0",
+                "description": "Cena na vyžádání"
+            },
+            "seller": {
+                "@type": "LocalBusiness",
+                "@id": "{{ client.domain }}/#organization"
+            },
+            "warranty": {
+                "@type": "WarrantyPromise",
+                "durationOfWarranty": "P24M",
+                "warrantyScope": "Kompletní záruka výrobce a montáže"
+            }
+        },
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue", 
+                "name": "Instalace",
+                "value": "Profesionální montáž"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Servis", 
+                "value": "Celoroční servis"
+            },
+            {
+                "@type": "PropertyValue",
+                "name": "Poradenství",
+                "value": "Bezplatná konzultace"
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "31",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+</script>

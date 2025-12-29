@@ -1,9 +1,10 @@
 ---
 layout: "pages/garazova-vrata.njk"
 
-title: "Garážová vrata Hörmann"
-description: "Sekční a výklopná garážová vrata Hörmann s vysokou bezpečností, energetickou úsporou a moderním designem. Kompletní řešení včetně montáže."
+title: "Garážová vrata Hörmann - sekční a výklopná | Ústí nad Orlicí"
+description: "✓ Garážová vrata Hörmann ✓ Sekční a výklopná vrata ✓ Vysoká bezpečnost ✓ Energetické úspory ✓ Profesionální montáž ✓ Autorizovaný dealer ✓ Bezplatná konzultace"
 permalink: "produkty/garazova-vrata/"
+image: "/assets/images/garazova-vrata/sekční-vrata-hormann.jpg"
 
 eleventyNavigation:
   key: Garážová vrata

@@ -3,9 +3,28 @@ permalink: /robots.txt
 layout: null
 eleventyExcludeFromCollections: true
 ---
+---
+permalink: /robots.txt
+layout: null
+eleventyExcludeFromCollections: true
+---
 User-agent: *
-Disallow: /admin/
-Disallow: /gdpr/
 Allow: /
 
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /_redirects
+Disallow: /assets/css/input.css
+
+# Allow important directories
+Allow: /produkty/
+Allow: /o-nas/
+Allow: /kontakt/
+Allow: /assets/images/
+Allow: /assets/svgs/
+
+# Crawl delay for better server performance
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: {{ client.domain }}/sitemap.xml

@@ -1,8 +1,8 @@
 ---
 layout: "pages/contact.njk"
 
-title: "Kontakt"
-description: "V Senoweb se specializujeme na tvorbu webových stránek na míru. Nepoužíváme koupené šablony, nástroje pro automatizované budování webů ani nástroje, které by váš web zahlcovali zbytečným kódem a tím vaší stránku zpomalovaly."
+title: "Kontakt - Marek Vítek | Ústí nad Orlicí, Žamberk"
+description: "✓ Kontakt na autorizovaného prodejce Hörmann ✓ Telefon: +420 724 311 719 ✓ Vzorková prodejna Žamberk ✓ Konzultace zdarma ✓ Rychlá odezva do 24h"
 permalink: "kontakt/"
 
 eleventyNavigation:

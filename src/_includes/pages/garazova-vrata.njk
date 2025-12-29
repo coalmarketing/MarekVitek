@@ -1,5 +1,10 @@
 {% extends "layouts/base.njk" %}
 
+{% block head %}
+    <!-- Product Schema for SEO -->
+    {% include "components/product-schema.njk" %}
+{% endblock %}
+
 {% block body %}
     <!-- HERO SECTION - Dark with garage door background -->
     <section class="relative py-20 ~px-4/8 bg-gray-900 overflow-hidden min-h-[600px] flex items-center">

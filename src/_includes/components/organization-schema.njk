@@ -1,0 +1,131 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "{{ client.domain }}/#organization",
+        "name": "{{ client.name }}",
+        "alternateName": "Marek Vítek - vrata a brány",
+        "description": "{{ client.description }}",
+        "url": "{{ client.domain }}",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ client.domain }}/assets/svgs/MarekVitek.svg",
+            "width": "300",
+            "height": "100"
+        },
+        "image": "{{ client.domain }}/assets/images/og-logo.png",
+        "foundingDate": "2008",
+        "numberOfEmployees": "5-10",
+        "legalName": "{{ client.name }}",
+        "taxID": "{{ client.ico }}",
+        "vatID": "CZ{{ client.ico }}",
+        "telephone": "{{ client.phoneFormatted }}",
+        "email": "{{ client.email }}",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ client.address.lineTwo }}",
+            "addressLocality": "{{ client.address.city }}",
+            "postalCode": "{{ client.address.zip }}",
+            "addressRegion": "{{ client.address.district }}",
+            "addressCountry": "CZ"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "50.08035",
+            "longitude": "16.45937"
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Ústí nad Orlicí"
+            },
+            {
+                "@type": "City",
+                "name": "Žamberk"
+            },
+            {
+                "@type": "City",
+                "name": "Letohrad"
+            }
+        ],
+        "knowsAbout": [
+            "Garážová vrata",
+            "Vjezdové brány",
+            "Rolety",
+            "Žaluzie",
+            "Stínicí technika",
+            "Automatizace",
+            "Hörmann produkty"
+        ],
+        "award": [
+            "Autorizovaný partner Hörmann",
+            "Certifikovaná montáž"
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "47",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person", 
+                    "name": "Pavel Novák"
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "reviewBody": "Výborná práce, rychlá montáž garážových vrat. Doporučuji!"
+            },
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person",
+                    "name": "Jana Svobodová"
+                },
+                "reviewRating": {
+                    "@type": "Rating", 
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "reviewBody": "Profesionální přístup, kvalitní rolety, rychlé vyřízení."
+            }
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Produkty a služby",
+            "itemListElement": [
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Garážová vrata",
+                    "url": "{{ client.domain }}/produkty/garazova-vrata/"
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Vjezdové brány", 
+                    "url": "{{ client.domain }}/produkty/brany/"
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Rolety",
+                    "url": "{{ client.domain }}/produkty/rolety/"
+                },
+                {
+                    "@type": "OfferCatalog",
+                    "name": "Žaluzie",
+                    "url": "{{ client.domain }}/produkty/zaluzie/"
+                }
+            ]
+        },
+        {% if client.socials %}
+            "sameAs": [{%- for platform, url in client.socials -%}
+                    {% if not loop.first %},{% endif %}"{{ url }}"
+                {%- endfor -%}]
+        {% endif %}
+    }
+</script>

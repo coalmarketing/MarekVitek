@@ -1,31 +1,146 @@
 {% extends "layouts/base.njk" %}
 
+{% extends "layouts/base.njk" %}
+
 {% block body %}
-    {% include "sections/landing.njk" %}
+    <!-- HERO SECTION -->
+    <section class="relative py-20 ~px-4/8 bg-gradient-to-br from-brand-blue to-gray-800 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 20px 20px;"></div>
+        </div>
+        
+        <div class="container m-auto relative z-10">
+            <div class="max-w-3xl text-center mx-auto">
+                <!-- Topper -->
+                <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3 mb-6">
+                    <span class="text-brand-orange font-semibold text-sm uppercase tracking-wider">{{ contentOne.topper }}</span>
+                </div>
+                
+                <!-- Main heading -->
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    {{ contentOne.heading }}
+                </h1>
+                
+                <!-- Description -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+                    Transparentní informace o tom, jak zpracováváme a chráníme vaše osobní údaje v souladu s GDPR
+                </p>
 
-    <!-- GDPR -->
-    <section class="py-24 ~px-4/8">
+                <!-- Last updated -->
+                <div class="flex items-center justify-center gap-2 text-gray-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-sm">Platné od: 25. května 2018 | Aktualizováno: 29. prosince 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GDPR CONTENT -->
+    <section class="py-16 ~px-4/8 bg-white">
         <div class="container m-auto">
-            <div class="max-w-[75ch]">
-                {% for item in contentOne.items %}
-                    <div class="mb-6">
-                        {% if item.heading %}
-                            <h3 class="dark:text-white ~text-xl/2xl font-semibold mb-4">{{ item.heading }}</h3>
-                        {% endif -%}
-
-                        {%- if item.text %}
-                            <p class="~text-sm/base text-gray-800 dark:text-gray-200 mb-2">{{ item.text }}</p>
-                        {% endif -%}
-
-                        {%- if item.subitems %}
-                            <ul class="list-disc max-w-2xl space-y-1 ml-8">
-                                {% for subitem in item.subitems %}
-                                    <li class="font-work-sans text-gray-800 dark:text-gray-200">{{ subitem.text }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
+            <div class="max-w-4xl mx-auto">
+                
+                <!-- Introduction -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-12">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-blue-900 mb-2">Důležité informace</h3>
+                            <p class="text-blue-800 leading-relaxed">
+                                Respektujeme vaše soukromí a zavazujeme se transparentně informovat o způsobu zpracování vašich osobních údajů. 
+                                Tato stránka obsahuje všechny potřebné informace o ochraně vašich dat podle GDPR.
+                            </p>
+                        </div>
                     </div>
-                {% endfor %}
+                </div>
+
+                <!-- GDPR Content Items -->
+                <div class="space-y-10">
+                    {% for item in contentOne.items %}
+                        <div class="bg-gray-50 rounded-xl p-8 hover:shadow-md transition-shadow duration-300">
+                            {% if item.heading %}
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-8 h-8 bg-brand-orange rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <h2 class="text-2xl font-bold text-gray-900">{{ item.heading }}</h2>
+                                </div>
+                            {% endif %}
+
+                            {% if item.text %}
+                                <p class="text-gray-700 leading-relaxed text-lg mb-4 {% if not item.heading %}mt-0{% endif %}">{{ item.text }}</p>
+                            {% endif %}
+
+                            {% if item.subitems %}
+                                <div class="mt-6">
+                                    <ul class="space-y-3">
+                                        {% for subitem in item.subitems %}
+                                            <li class="flex items-start gap-3">
+                                                <div class="flex-shrink-0 w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mt-0.5">
+                                                    <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-gray-700 leading-relaxed">{{ subitem.text }}</span>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Contact Section -->
+                <div class="mt-16 bg-gradient-to-br from-brand-blue to-gray-800 rounded-2xl p-8 text-center">
+                    <div class="max-w-2xl mx-auto">
+                        <div class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Máte dotazy k ochraně údajů?</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Pokud máte jakékoliv dotazy ohledně zpracování vašich osobních údajů nebo chcete uplatnit svá práva, neváhejte nás kontaktovat.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="mailto:info@marekvitek.cz" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-blue rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                                E-mail
+                            </a>
+                            <a href="tel:+420724311719" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-brand-blue transition-all duration-300">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                                Telefon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Back to forms link -->
+                <div class="text-center mt-12">
+                    <a href="/#kontakt" class="inline-flex items-center gap-2 text-brand-blue hover:text-brand-orange transition-colors duration-300 font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                        </svg>
+                        Zpět na kontaktní formulář
+                    </a>
+                </div>
             </div>
         </div>
     </section>
