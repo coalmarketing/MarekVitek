@@ -105,10 +105,10 @@ testimonials:
   subtitle: ...abyste při zadání projektu měli plnou důvěru a mohli si být jisti jeho kvalitou. Stále nevěříte? Níže se dočtete, co o nás říkají naši klienti.
 
   items:
-    - quote: "Žaluzie od firmy Marek Vítek nám perfektně slouží již několik let. Kvalitní zpracování, rychlá montáž a profesionální přístup. Doporučujeme všem, kdo hledají kvalitní stínicí techniku."
-      name: "Jan Novák"
-      title: "Spokojený zákazník"
-      initials: "JN"
+    - quote: "Vřele doporučuji firmu pana Vítka. Máme od něj už několik let v provozu, jak garážová vrata, tak pohon brány. Seriozní jednání, spolehlivý člověk!"
+      name: "Chalupa Dolní Morava"
+      title: "podnikatelé"
+      initials: "DM"
 
     - quote: "Vyborná komunikace, skvělé ceny a rychlá realizace. Žaluzie jsou krásné a plní přesně to, co jsme od nich očekávali. Děkujeme!"
       name: "Marie Dvořáková"
