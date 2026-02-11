@@ -6,47 +6,14 @@
 {% endblock %}
 
 {% block body %}
-    <!-- HERO SECTION - Dark with roller shutters background -->
-    <section class="relative py-20 ~px-4/8 bg-gray-900 overflow-hidden min-h-[600px] flex items-center">
-        <!-- Background Image Overlay -->
-        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
-        
-        <!-- Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent z-20"></div>
-        
-        <div class="container m-auto relative z-30">
-            <div class="max-w-2xl">
-                <!-- Topper with gradient border -->
-                {% if hero.topper %}
-                <div class="mb-6">
-                    <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3">
-                        <span class="text-white font-semibold text-sm uppercase tracking-wider">{{ hero.topper }}</span>
-                    </div>
-                </div>
-                {% endif %}
-
-                <!-- Main heading -->
-                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                    {{ hero.heading }}
-                </h1>
-                
-                <!-- Description -->
-                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-                    {{ hero.paragraph }}
-                </p>
-
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="/kontakt/" class="inline-block px-8 py-4 bg-brand-orange text-white rounded-lg hover:bg-opacity-90 transition-all duration-300 font-semibold no-underline text-center">
-                        {{ hero.ctaPrimary }}
-                    </a>
-                    <a href="#produkty" class="inline-block px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold no-underline text-center">
-                        {{ hero.ctaSecondary }}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% set heroData = {
+        topper: hero.topper,
+        heading: hero.heading,
+        description: hero.paragraph,
+        ctaPrimary: { text: hero.ctaPrimary, href: "/kontakt/" },
+        ctaSecondary: { text: hero.ctaSecondary, href: "#produkty" }
+    } %}
+    {% include "components/hero.njk" %}
 
     <!-- ROLLER SHUTTER TYPES SECTION -->
     <section class="py-16 ~px-4/8 bg-white">

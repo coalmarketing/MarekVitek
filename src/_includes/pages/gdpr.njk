@@ -1,42 +1,13 @@
 {% extends "layouts/base.njk" %}
 
-{% extends "layouts/base.njk" %}
-
 {% block body %}
-    <!-- HERO SECTION -->
-    <section class="relative py-20 ~px-4/8 bg-gradient-to-br from-brand-blue to-gray-800 overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 20px 20px;"></div>
-        </div>
-        
-        <div class="container m-auto relative z-10">
-            <div class="max-w-3xl text-center mx-auto">
-                <!-- Topper -->
-                <div class="inline-block border-gradient-custom-rounded bg-white px-6 py-3 mb-6">
-                    <span class="text-brand-orange font-semibold text-sm uppercase tracking-wider">{{ contentOne.topper }}</span>
-                </div>
-                
-                <!-- Main heading -->
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                    {{ contentOne.heading }}
-                </h1>
-                
-                <!-- Description -->
-                <p class="text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-                    Transparentní informace o tom, jak zpracováváme a chráníme vaše osobní údaje v souladu s GDPR
-                </p>
-
-                <!-- Last updated -->
-                <div class="flex items-center justify-center gap-2 text-gray-400">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <span class="text-sm">Platné od: 25. května 2018 | Aktualizováno: 29. prosince 2024</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% set heroData = {
+        topper: contentOne.topper,
+        heading: contentOne.heading,
+        description: "Transparentní informace o tom, jak zpracováváme a chráníme vaše osobní údaje v souladu s GDPR",
+        ctaPrimary: { text: "Kontaktujte nás", href: "/kontakt/" }
+    } %}
+    {% include "components/hero.njk" %}
 
     <!-- GDPR CONTENT -->
     <section class="py-16 ~px-4/8 bg-white">
