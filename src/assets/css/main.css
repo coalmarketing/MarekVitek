@@ -2446,6 +2446,10 @@ nav a::before {
   z-index: 50;
 }
 
+.z-0 {
+  z-index: 0;
+}
+
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
@@ -3661,6 +3665,18 @@ nav a::before {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-gray-900\/95 {
+  --tw-gradient-from: rgb(17 24 39 / 0.95) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(17 24 39 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-gray-900\/85 {
+  --tw-gradient-from: rgb(17 24 39 / 0.85) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(17 24 39 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .via-blue-600 {
   --tw-gradient-to: rgb(37 99 235 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #2563eb var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -3714,6 +3730,21 @@ nav a::before {
 .via-transparent {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-gray-900\/50 {
+  --tw-gradient-to: rgb(17 24 39 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(17 24 39 / 0.5) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-gray-900\/85 {
+  --tw-gradient-to: rgb(17 24 39 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(17 24 39 / 0.85) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-gray-900\/75 {
+  --tw-gradient-to: rgb(17 24 39 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(17 24 39 / 0.75) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-amber-400 {
@@ -3836,6 +3867,18 @@ nav a::before {
   --tw-gradient-to: #fff var(--tw-gradient-to-position);
 }
 
+.to-gray-900\/60 {
+  --tw-gradient-to: rgb(17 24 39 / 0.6) var(--tw-gradient-to-position);
+}
+
+.to-gray-900\/70 {
+  --tw-gradient-to: rgb(17 24 39 / 0.7) var(--tw-gradient-to-position);
+}
+
+.to-gray-900\/50 {
+  --tw-gradient-to: rgb(17 24 39 / 0.5) var(--tw-gradient-to-position);
+}
+
 .bg-clip-text {
   -webkit-background-clip: text;
           background-clip: text;
@@ -3849,6 +3892,11 @@ nav a::before {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-2 {
