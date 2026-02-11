@@ -20,13 +20,18 @@
 
           <li class="{% if hasChild %}relative group{% endif %}">
             {% if hasChild %}
-              {# Dropdown menu #}
-              <button class="flex items-center gap-1 px-3 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-300 font-medium">
-                {{ entry.key }}
-                <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                </svg>
-              </button>
+              {# Dropdown menu with clickable parent #}
+              <div class="flex items-center">
+                <a href="{{ entry.url }}" class="px-3 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-300 font-medium
+                  {%- if entry.url == page.url %} text-brand-orange font-semibold{% endif %}">
+                  {{ entry.key }}
+                </a>
+                <button class="px-1 py-2 text-gray-700 hover:text-brand-orange transition-colors duration-300" aria-label="Toggle {{ entry.key }} dropdown">
+                  <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                  </svg>
+                </button>
+              </div>
               
               {# Dropdown content #}
               <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
